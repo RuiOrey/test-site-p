@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "name": "Vila Real de Santo António",
+    "source": "https://www.cm-vrsa.pt/pt/menu/77/composicao.aspx",
+    "panReps": [],
+    "composition": {
+      "AD": { "seats": 10, "color": "#2563eb", "note": "Coligação PSD/CDS-PP" },
+      "PS": { "seats": 10, "color": "#e53e3e" },
+      "CH": { "seats": 3, "color": "#1e293b" },
+      "CDU": { "seats": 1, "color": "#dc2626" }
+    }
+  },
+  "sessions": []
+}

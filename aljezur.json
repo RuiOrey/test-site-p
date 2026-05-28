@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "name": "Aljezur",
+    "source": "https://cm-aljezur.pt/pt/menu/57/reunioes.aspx",
+    "panReps": [
+      { "name": "Marta Noz", "list": "Renascer – Movimento Independente", "sessions": [] }
+    ],
+    "composition": {
+      "Renascer": { "seats": 5, "color": "#0d9488", "note": "inclui PAN (Marta Noz)" },
+      "PS": { "seats": 3, "color": "#e53e3e" },
+      "PSD": { "seats": 2, "color": "#2563eb" },
+      "CDU": { "seats": 1, "color": "#dc2626" },
+      "JF": { "seats": 3, "color": "#64748b", "note": "Presidentes de Junta" }
+    }
+  },
+  "sessions": []
+}

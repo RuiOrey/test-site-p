@@ -9,7 +9,7 @@
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Inter', sans-serif; background: #f0f2f5; color: #1a1a2e; }
-.header { background: linear-gradient(135deg, #1a3a2a 0%, #2d6a4f 50%, #40916c 100%); color: white; padding: 3rem 2rem; text-align: center; }
+.header { background: linear-gradient(135deg, #1a3a2a 0%, #2d6a4f 50%, #40916c 100%); color: white; padding: 2.5rem 2rem; text-align: center; }
 .header h1 { font-size: 2rem; font-weight: 800; margin-bottom: .3rem; letter-spacing: -.02em; }
 .header p { opacity: .85; font-size: 1rem; font-weight: 300; }
 .header .subtitle { margin-top: .3rem; font-size: .8rem; opacity: .6; }
@@ -39,7 +39,13 @@ body { font-family: 'Inter', sans-serif; background: #f0f2f5; color: #1a1a2e; }
 .vote-table { width: 100%; border-collapse: collapse; font-size: .82rem; }
 .vote-table th { text-align: left; padding: .5rem .6rem; font-weight: 600; color: #64748b; font-size: .7rem; text-transform: uppercase; letter-spacing: .04em; border-bottom: 2px solid #e9ecef; }
 .vote-table td { padding: .5rem .6rem; border-bottom: 1px solid #f1f3f5; vertical-align: top; }
-.vote-table tr:hover td { background: #f8fafc; }
+.vote-table tr.clickable { cursor: pointer; }
+.vote-table tr.clickable:hover td { background: #f0fdf4; }
+.vote-table tr.detail-row td { padding: 0; }
+.vote-table .detail-inner { padding: .5rem 1rem 1rem 1rem; background: #f8fafc; border-bottom: 1px solid #e9ecef; font-size: .8rem; color: #475569; }
+.vote-table .detail-inner .reason-label { font-weight: 600; color: #334155; margin-bottom: .3rem; }
+.vote-table .detail-inner .source-link { display: inline-block; margin-top: .4rem; color: #2d6a4f; text-decoration: none; font-weight: 500; }
+.vote-table .detail-inner .source-link:hover { text-decoration: underline; }
 .badge { display: inline-flex; align-items: center; gap: .2rem; padding: .15rem .5rem; border-radius: 20px; font-weight: 600; font-size: .72rem; white-space: nowrap; }
 .badge-favor { background: #d1fae5; color: #065f46; }
 .badge-against { background: #fee2e2; color: #991b1b; }
@@ -50,11 +56,16 @@ body { font-family: 'Inter', sans-serif; background: #f0f2f5; color: #1a1a2e; }
 .chart-card { background: white; border-radius: 12px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,.06); border: 1px solid rgba(0,0,0,.04); }
 .chart-card h3 { font-size: .9rem; font-weight: 600; margin-bottom: .8rem; color: #334155; }
 .chart-card canvas { max-height: 260px; max-width: 100%; }
-.rep-bar { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: .3rem; }
-.rep-party { font-size: .72rem; padding: .1rem .5rem; border-radius: 4px; font-weight: 600; }
 .party-grid { display: flex; flex-wrap: wrap; gap: .3rem; }
 .party-tag { font-size: .68rem; padding: .1rem .45rem; border-radius: 4px; font-weight: 600; white-space: nowrap; }
-.proposed-by { font-size: .7rem; color: #64748b; margin-top: .1rem; }
+.muni-selector { margin-top: 1rem; }
+.muni-selector select { padding: .5rem 1rem; border: 1px solid rgba(255,255,255,.3); border-radius: 8px; font-family: inherit; font-size: .9rem; background: rgba(255,255,255,.15); color: white; font-weight: 500; cursor: pointer; outline: none; }
+.muni-selector select option { color: #1a1a2e; background: white; }
+.placeholder-msg { text-align: center; padding: 3rem 1rem; color: #94a3b8; }
+.placeholder-msg h3 { font-size: 1.2rem; margin-bottom: .5rem; color: #64748b; }
+.placeholder-msg p { font-size: .9rem; }
+.composition-grid { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.5rem; justify-content: center; }
+.composition-item { font-size: .75rem; padding: .3rem .7rem; border-radius: 6px; font-weight: 600; color: white; }
 @media (max-width: 768px) { .charts-grid { grid-template-columns: 1fr; } .container { padding: 1rem; } .header h1 { font-size: 1.5rem; } }
 </style>
 </head>
@@ -62,152 +73,82 @@ body { font-family: 'Inter', sans-serif; background: #f0f2f5; color: #1a1a2e; }
 <div class="header">
   <h1>Dados Municipais</h1>
   <p>Acompanhamento de atividade parlamentar autárquica</p>
-  <div class="subtitle">Faro · Aljezur · Atualizado: Maio 2026</div>
+  <div class="muni-selector">
+    <select id="muniSelect" onchange="switchMunicipality(this.value)">
+      <option value="faro">Faro</option>
+      <option value="aljezur">Aljezur</option>
+      <option value="vrsa">Vila Real de Santo António</option>
+    </select>
+  </div>
+  <div class="subtitle" id="subtitle">Faro · Atualizado: Maio 2026</div>
 </div>
 <div class="container">
-
-<div id="app"></div>
-
+  <div id="app"></div>
 </div>
 <script>
+const MUNICIPALITIES = { faro: 'faro.json', aljezur: 'aljezur.json', vrsa: 'vrsa.json' };
 const PARTIES = {
   'PS': '#e53e3e', 'PPD/PSD': '#2563eb', 'CH': '#1e293b', 'CDS-PP': '#0891b2',
-  'CDU': '#dc2626', 'IL': '#7c3aed', 'MPT': '#059669', 'LIVRE': '#d97706', 'PAN': '#2d6a4f'
+  'CDU': '#dc2626', 'IL': '#7c3aed', 'MPT': '#059669', 'LIVRE': '#d97706',
+  'PAN': '#2d6a4f', 'PSD': '#2563eb', 'AD': '#2563eb', 'Renascer': '#0d9488',
+  'JF': '#64748b'
 };
 const PARTY_SHORT = { 'PPD/PSD': 'PSD', 'CDS-PP': 'CDS' };
 function pn(name) { return PARTY_SHORT[name] || name; }
 
-const data = [
-{ session: 54, date: "2026-04-28", type: "Ordinária", rep: "Pedro Silva", local: "Salão Nobre, Faro", items: [
-  { item: "Voto de Pesar Álvaro Cassuto", proposedBy: "Mesa", pan: "favor",
-    votes: { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"-" } },
-  { item: "Voto de Louvor Pedro Graça", proposedBy: "Mesa", pan: "favor",
-    votes: { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"-" } },
-  { item: "Voto de Louvor Cineclube Faro", proposedBy: "Mesa", pan: "favor",
-    votes: { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"-" } },
-  { item: "Voto de Louvor Salvador Valente", proposedBy: "Mesa", pan: "favor",
-    votes: { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"-" } },
-  { item: "Moção Mateus Moreno Jr.", proposedBy: "CH", pan: "against",
-    votes: { "PS":"abstention","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"against","MPT":"favor","LIVRE":"abstention","IL":"-" } },
-  { item: "Moção Auditoria FAGAR", proposedBy: "CH", pan: "favor",
-    votes: { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"abstention","MPT":"abstention","LIVRE":"abstention","IL":"-" } },
-  { item: "Moção Reforço Fiscalização Obras", proposedBy: "PPD/PSD", pan: "favor",
-    votes: { "PS":"abstention","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"-" } },
-  { item: "Proposta Julgado Paz Faro", proposedBy: "PPD/PSD", pan: "favor",
-    votes: { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"abstention","MPT":"favor","LIVRE":"abstention","IL":"-" } },
-  { item: "Regimento AM Jovem", proposedBy: "CM", pan: "favor",
-    votes: { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"-" } },
-  { item: "Prestação Contas 2025", proposedBy: "CM", pan: "abstention",
-    votes: { "PS":"favor","PPD/PSD":"abstention","CH":"abstention","CDS-PP":"favor","CDU":"abstention","MPT":"abstention","LIVRE":"abstention","IL":"-" } },
-  { item: "2ª Alt. Orçamento 2026", proposedBy: "CM", pan: "favor",
-    votes: { "PS":"favor","PPD/PSD":"favor","CH":"mixed","CDS-PP":"favor","CDU":"abstention","MPT":"abstention","LIVRE":"abstention","IL":"abstention" } },
-  { item: "Auditor Externo 2026/2029", proposedBy: "CM", pan: "favor",
-    votes: { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"-" } },
-  { item: "Contrato Cooperação PSP", proposedBy: "CM", pan: "favor",
-    votes: { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"abstention","MPT":"favor","LIVRE":"favor","IL":"-" } },
-  { item: "Contrato Mercado Estoi", proposedBy: "CM", pan: "favor",
-    votes: { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"abstention","MPT":"abstention","LIVRE":"favor","IL":"-" } },
-  { item: "Contrato Juntas Freguesia", proposedBy: "CM", pan: "favor",
-    votes: { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"-" } },
-  { item: "Moção Intenção Recompra FAGAR", proposedBy: "CH", pan: "favor",
-    votes: { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"-" } },
-  { item: "Saudação 25 Abril / 1º Maio", proposedBy: "CDU", pan: "favor",
-    votes: { "PS":"favor","PPD/PSD":"mixed","CH":"against","CDS-PP":"favor","CDU":"favor","MPT":"abstention","LIVRE":"favor","IL":"-" } },
-  { item: "Moção Resiliência Hídrica", proposedBy: "CH", pan: "abstention",
-    votes: { "PS":"abstention","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"against","MPT":"favor","LIVRE":"abstention","IL":"-" } }
-]},
-{ session: 52, date: "2026-02-24", type: "Ordinária", rep: "Carlos Gonçalves", local: "Salão Nobre, Faro", items: [
-  { item: "Aprovação Ata nº 3", proposedBy: "Mesa", pan: "favor",
-    votes: { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"favor" } },
-  { item: "Aprovação Ata nº 4", proposedBy: "Mesa", pan: "favor",
-    votes: { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"favor" } },
-  { item: "Voto de Louvor Isaac Nader", proposedBy: "Mesa", pan: "favor",
-    votes: { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"favor" } },
-  { item: "Voto de Pesar José Carlos Rolo", proposedBy: "Mesa", pan: "favor",
-    votes: { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"favor" } },
-  { item: "Moção CDU — 8 de Março", proposedBy: "CDU", pan: "abstention",
-    votes: { "PS":"favor","PPD/PSD":"abstention","CH":"abstention","CDS-PP":"abstention","CDU":"favor","MPT":"abstention","LIVRE":"favor","IL":"abstention" } },
-  { item: "Moção LIVRE — Arvoredo Urbano", proposedBy: "LIVRE", pan: "favor",
-    votes: { "PS":"favor","PPD/PSD":"favor","CH":"abstention","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"favor" } },
-  { item: "ZEP Edifício RTP", proposedBy: "CM", pan: "favor",
-    votes: { "PS":"favor","PPD/PSD":"favor","CH":"abstention","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"against" } },
-  { item: "Revogação Dir. Superfície L6 (Ténis)", proposedBy: "CM", pan: "favor",
-    votes: { "PS":"favor","PPD/PSD":"favor","CH":"against","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"against","IL":"favor" } },
-  { item: "Alienação lote Av. Hayward", proposedBy: "CM", pan: "favor",
-    votes: { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"favor" } },
-  { item: "1ª Alt. Orçamento 2026", proposedBy: "CM", pan: "favor",
-    votes: { "PS":"favor","PPD/PSD":"favor","CH":"against","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"against","IL":"against" } },
-  { item: "1ª Alt. Orçamental TM Faro", proposedBy: "CM", pan: "favor",
-    votes: { "PS":"favor","PPD/PSD":"favor","CH":"against","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"abstention" } },
-  { item: "Conselho Municipal Educação", proposedBy: "CM", pan: "favor",
-    votes: { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"favor" } }
-]},
-{ session: 49, date: "2025-12-29", type: "Ordinária", rep: "Carlos Gonçalves", local: "Salão Nobre, Faro", items: [
-  { item: "Aprovação ata 27/11/2025", proposedBy: "Mesa", pan: "favor",
-    votes: { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"favor" } },
-  { item: "Voto de Louvor Lídia Jorge", proposedBy: "Mesa", pan: "favor",
-    votes: { "PS":"favor","PPD/PSD":"favor","CH":"against","CDS-PP":"abstention","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"favor" } },
-  { item: "Voto de Pesar José Zeferino", proposedBy: "Mesa", pan: "favor",
-    votes: { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"favor" } },
-  { item: "Voto de Louvor Arena Faro", proposedBy: "Mesa", pan: "favor",
-    votes: { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"favor" } },
-  { item: "Voto de Louvor Pedro Graça", proposedBy: "Mesa", pan: "favor",
-    votes: { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"favor" } },
-  { item: "Voto de Pesar Artur Lara Ramos", proposedBy: "Mesa", pan: "favor",
-    votes: { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"favor" } },
-  { item: "Orçamento 2026-2030", proposedBy: "CM", pan: "favor",
-    votes: { "PS":"favor","PPD/PSD":"abstention","CH":"against","CDS-PP":"favor","CDU":"abstention","MPT":"abstention","LIVRE":"abstention","IL":"against" } }
-]},
-{ session: 53, date: "2026-03-26", type: "Extraordinária", rep: "Carlos Gonçalves", local: "Salão Nobre, Faro", items: [
-  { item: "Voto de Pesar Mário Zambujal", proposedBy: "Mesa", pan: "favor",
-    votes: { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"favor" } },
-  { item: "Voto de Louvor Rui Sequeira", proposedBy: "Mesa", pan: "favor",
-    votes: { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"favor" } },
-  { item: "Votos de Louvor Isaac Nader", proposedBy: "Mesa", pan: "favor",
-    votes: { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"favor" } },
-  { item: "Aprovação Ata anterior", proposedBy: "Mesa", pan: "favor",
-    votes: { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"abstention","MPT":"favor","LIVRE":"favor","IL":"abstention" } },
-  { item: "Carta Educativa Faro 2026", proposedBy: "CM", pan: "favor",
-    votes: { "PS":"favor","PPD/PSD":"favor","CH":"mixed","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"favor" } }
-]},
-{ session: 48, date: "2025-11-27", type: "Extraordinária", rep: "Carlos Gonçalves", local: "Salão Nobre, Faro", items: [
-  { item: "Aprovação ata eleição Mesa", proposedBy: "Mesa", pan: "favor",
-    votes: { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"favor" } },
-  { item: "Alteração Regimento art. 9º", proposedBy: "Mesa", pan: "favor",
-    votes: { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"favor" } },
-  { item: "Alteração Regimento art. 24º", proposedBy: "Mesa", pan: "favor",
-    votes: { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"favor" } },
-  { item: "Alteração Regimento art. 28º", proposedBy: "Mesa", pan: "favor",
-    votes: { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"favor" } },
-  { item: "Alteração Regimento art. 29º", proposedBy: "Mesa", pan: "favor",
-    votes: { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"favor" } },
-  { item: "Artigo 34º — Horário alternativo", proposedBy: "Mesa", pan: "abstention",
-    votes: { "PS":"abstention","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"abstention","MPT":"favor","LIVRE":"abstention","IL":"favor" } },
-  { item: "Artigo 67º", proposedBy: "Mesa", pan: "against",
-    votes: { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"against","LIVRE":"abstention","IL":"against" } },
-  { item: "Artigo 68º", proposedBy: "Mesa", pan: "favor",
-    votes: { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"favor" } },
-  { item: "Artigo 70º", proposedBy: "Mesa", pan: "favor",
-    votes: { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"favor" } },
-  { item: "Duração mandato Mesa", proposedBy: "Mesa", pan: "abstention",
-    votes: { "PS":"abstention","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"abstention","MPT":"abstention","LIVRE":"abstention","IL":"favor" } },
-  { item: "Remuneração Mesa", proposedBy: "Mesa", pan: "against",
-    votes: { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"against","LIVRE":"against","IL":"favor" } }
-]},
-{ session: 55, date: "2026-04-25", type: "Extraordinária", rep: "Pedro Silva", local: "Escola Hotelaria Turismo Algarve", items: [
-  { item: "Sessão Evocativa 25 de Abril", proposedBy: "-", pan: "commemorative", votes: {} }
-]}
-];
+let currentData = null;
+let chartInstances = [];
 
-function init() {
-  const allItems = data.flatMap(s => s.items.filter(i => i.pan !== 'commemorative'));
-  const nSessions = data.length;
+async function switchMunicipality(id) {
+  try {
+    const resp = await fetch(MUNICIPALITIES[id]);
+    if (!resp.ok) throw new Error('Failed to load');
+    const data = await resp.json();
+    currentData = data;
+    renderAll(data);
+  } catch (e) {
+    document.getElementById('app').innerHTML = `<div class="placeholder-msg"><h3>Erro ao carregar dados</h3><p>Não foi possível carregar os dados do município.</p></div>`;
+  }
+}
+
+function renderAll(data) {
+  chartInstances.forEach(c => c.destroy());
+  chartInstances = [];
+
+  const meta = data.meta;
+  document.getElementById('subtitle').textContent = `${meta.name} · Atualizado: Maio 2026`;
+
+  const allSessions = data.sessions || [];
+  const allItems = allSessions.flatMap(s => (s.items || []).filter(i => i.pan !== 'commemorative'));
+  const nSessions = allSessions.length;
+  const nTotal = allItems.length;
   const nFavor = allItems.filter(i => i.pan === 'favor').length;
   const nAgainst = allItems.filter(i => i.pan === 'against').length;
   const nAbst = allItems.filter(i => i.pan === 'abstention').length;
-  const nTotal = allItems.length;
 
   const app = document.getElementById('app');
+
+  if (nTotal === 0) {
+    const comp = meta.composition ? Object.entries(meta.composition).map(([p, c]) =>
+      `<span class="composition-item" style="background:${c.color}">${pn(p)}: ${c.seats}</span>`
+    ).join('') : '';
+
+    app.innerHTML = `
+      <div class="stats-grid">
+        <div class="stat-card"><div class="label">Sessões</div><div class="value" style="color:#2d6a4f">${nSessions}</div></div>
+        <div class="stat-card"><div class="label">Votações PAN</div><div class="value">${nTotal}</div></div>
+      </div>
+      <div class="placeholder-msg">
+        <h3>Sem dados de votação disponíveis</h3>
+        <p>Os dados de votação para ${meta.name} ainda estão a ser compilados.<br>Volte mais tarde para consultar o registo de votações.</p>
+      </div>
+      ${comp ? `<div style="text-align:center;margin-top:1.5rem"><h3 style="font-size:.9rem;font-weight:600;color:#64748b;margin-bottom:.5rem">Composição da Assembleia</h3><div class="composition-grid">${comp}</div></div>` : ''}
+    `;
+    return;
+  }
+
+  const concordance = Math.round(nFavor / nTotal * 100);
+
   app.innerHTML = `
     <div class="stats-grid">
       <div class="stat-card"><div class="label">Sessões</div><div class="value" style="color:#2d6a4f">${nSessions}</div></div>
@@ -215,27 +156,27 @@ function init() {
       <div class="stat-card"><div class="label">A Favor</div><div class="value" style="color:#2d6a4f">${nFavor}</div></div>
       <div class="stat-card"><div class="label">Contra</div><div class="value" style="color:#dc2626">${nAgainst}</div></div>
       <div class="stat-card"><div class="label">Abstenções</div><div class="value" style="color:#ca8a04">${nAbst}</div></div>
-      <div class="stat-card"><div class="label">Concordância</div><div class="value" style="color:#2d6a4f">${Math.round(nFavor/nTotal*100)}%</div></div>
+      <div class="stat-card"><div class="label">Concordância</div><div class="value" style="color:#2d6a4f">${concordance}%</div></div>
     </div>
 
     <div class="charts-grid">
-      <div class="chart-card"><h3>📊 Votações PAN</h3><canvas id="chartPie"></canvas></div>
-      <div class="chart-card"><h3>📈 Alinhamento com outros partidos</h3><canvas id="chartAlign"></canvas></div>
-      <div class="chart-card"><h3>🏛️ Propostas por partido (como votou o PAN)</h3><canvas id="chartProposals"></canvas></div>
-      <div class="chart-card"><h3>✅ Concordância com cada partido</h3><canvas id="chartAgree"></canvas></div>
+      <div class="chart-card"><h3>Votações PAN</h3><canvas id="chartPie"></canvas></div>
+      <div class="chart-card"><h3>Alinhamento com outros partidos</h3><canvas id="chartAlign"></canvas></div>
+      <div class="chart-card"><h3>Propostas por partido (como votou o PAN)</h3><canvas id="chartProposals"></canvas></div>
+      <div class="chart-card"><h3>Concordância com cada partido</h3><canvas id="chartAgree"></canvas></div>
     </div>
 
     <div style="margin-bottom:1rem;display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;">
-      <span style="font-weight:600;font-size:.9rem">📋 Sessões (${nSessions})</span>
-      <select id="fType" onchange="render()" style="padding:.4rem .7rem;border:1px solid #dee2e6;border-radius:6px;font-size:.8rem">
+      <span style="font-weight:600;font-size:.9rem">Sessões (${nSessions})</span>
+      <select id="fType" onchange="renderSessions()" style="padding:.4rem .7rem;border:1px solid #dee2e6;border-radius:6px;font-size:.8rem">
         <option value="all">Todos os tipos</option>
         <option value="Ordinária">Ordinária</option>
         <option value="Extraordinária">Extraordinária</option>
       </select>
-      <select id="fParty" onchange="render()" style="padding:.4rem .7rem;border:1px solid #dee2e6;border-radius:6px;font-size:.8rem">
+      <select id="fParty" onchange="renderSessions()" style="padding:.4rem .7rem;border:1px solid #dee2e6;border-radius:6px;font-size:.8rem">
         <option value="all">Proposto por qualquer partido</option>
       </select>
-      <select id="fVote" onchange="render()" style="padding:.4rem .7rem;border:1px solid #dee2e6;border-radius:6px;font-size:.8rem">
+      <select id="fVote" onchange="renderSessions()" style="padding:.4rem .7rem;border:1px solid #dee2e6;border-radius:6px;font-size:.8rem">
         <option value="all">Qualquer voto</option>
         <option value="favor">A Favor</option>
         <option value="against">Contra</option>
@@ -248,22 +189,25 @@ function init() {
   const props = [...new Set(allItems.map(i => i.proposedBy))];
   document.getElementById('fParty').innerHTML += props.map(p => `<option value="${p}">${p}</option>`).join('');
 
-  render();
+  renderSessions();
   setupCharts(allItems);
 }
 
-function render() {
+function renderSessions() {
+  if (!currentData) return;
+  const sessions = currentData.sessions || [];
   const fType = document.getElementById('fType').value;
   const fParty = document.getElementById('fParty').value;
   const fVote = document.getElementById('fVote').value;
 
-  const filtered = data.map(s => {
-    let items = s.items;
-    if (fType !== 'all') items = items.filter(i => i.pan !== 'commemorative');
+  const filtered = sessions.reduce((acc, s) => {
+    if (fType !== 'all' && s.type !== fType) return acc;
+    let items = (s.items || []).filter(i => i.pan !== 'commemorative');
     if (fParty !== 'all') items = items.filter(i => i.proposedBy === fParty);
     if (fVote !== 'all') items = items.filter(i => i.pan === fVote);
-    return { ...s, items };
-  }).filter(s => s.items.length > 0);
+    if (items.length > 0) acc.push({ ...s, items });
+    return acc;
+  }, []);
 
   document.getElementById('sessionsContainer').innerHTML = filtered.map((s, idx) => {
     const closed = filtered.length > 1 && idx > 0 ? '' : 'open';
@@ -272,24 +216,46 @@ function render() {
         <div class="left">
           <span class="date">${fmtDate(s.date)}</span>
           <span class="type type-${s.type}">${s.type}</span>
-          <span class="rep">👤 ${s.rep}</span>
+          <span class="rep">${s.rep ? '👤 ' + s.rep : ''}</span>
         </div>
         <span class="arrow">▼</span>
       </div>
       <div class="session-body ${closed}"><div class="session-body-inner">
-        <p style="color:#64748b;font-size:.8rem;margin-bottom:.8rem">📍 ${s.local} · Sessão nº ${s.session}</p>
+        <p style="color:#64748b;font-size:.8rem;margin-bottom:.8rem">${s.local ? '📍 ' + s.local + ' · ' : ''}Sessão nº ${s.session}${s.source ? ' · <a href="' + s.source + '" target="_blank" style="color:#2d6a4f">Fonte</a>' : ''}</p>
         <table class="vote-table">
-          <thead><tr><th>Item</th><th>Proponente</th><th>PAN</th><th>Votação outros partidos</th></tr></thead>
-          <tbody>${s.items.map(i => `<tr>
-            <td>${i.item}</td>
-            <td><span class="badge" style="background:#e9ecef;color:#495057">${i.proposedBy}</span></td>
-            <td>${badge(i.pan)}</td>
-            <td>${partyVotesHTML(i.votes)}</td>
-          </tr>`).join('')}</tbody>
+          <thead><tr><th>Item</th><th>Prop.</th><th>PAN</th><th>Votação</th></tr></thead>
+          <tbody>${s.items.map((i, iIdx) => renderItemRow(s, i, iIdx)).join('')}</tbody>
         </table>
       </div></div>
     </div>`;
   }).join('');
+}
+
+function renderItemRow(session, item, idx) {
+  const hasDetail = item.reason || session.source;
+  const clickable = hasDetail ? ' clickable' : '';
+  const toggle = hasDetail ? ` onclick="toggleItemDetail(this, ${idx})"` : '';
+  return `<tr class="${clickable}"${toggle}>
+    <td>${item.item}${hasDetail ? ' <span style="font-size:.65rem;color:#94a3b8">ⓘ</span>' : ''}</td>
+    <td><span class="badge" style="background:#e9ecef;color:#495057">${item.proposedBy}</span></td>
+    <td>${badge(item.pan)}</td>
+    <td>${partyVotesHTML(item.votes)}</td>
+  </tr>
+  <tr class="detail-row" id="detail-${idx}" style="display:none">
+    <td colspan="4">
+      <div class="detail-inner" id="detailInner-${idx}">
+        ${item.reason ? `<div class="reason-label">Contexto:</div><p>${item.reason}</p>` : ''}
+        ${session.source ? `<a href="${session.source}" target="_blank" class="source-link">🔗 Ver sessão original →</a>` : ''}
+      </div>
+    </td>
+  </tr>`;
+}
+
+function toggleItemDetail(el, idx) {
+  const detailRow = document.getElementById('detail-' + idx);
+  if (!detailRow) return;
+  const isHidden = detailRow.style.display === 'none';
+  detailRow.style.display = isHidden ? 'table-row' : 'none';
 }
 
 function partyVotesHTML(votes) {
@@ -307,7 +273,7 @@ const vLabels = { favor: 'Fav', against: 'Con', abstention: 'Abs', mixed: 'Mist'
 function vLabel(v) { return vLabels[v] || v; }
 
 function badge(v) {
-  const m = { favor: ['badge-favor', '✅ Fav'], against: ['badge-against', '❌ Con'], abstention: ['badge-abstention', '⏸️ Abs'], commemorative: ['badge-novote', '🎉 Com'] };
+  const m = { favor: ['badge-favor', 'Fav'], against: ['badge-against', 'Con'], abstention: ['badge-abstention', 'Abs'], commemorative: ['badge-novote', 'Com'] };
   const [c, l] = m[v] || ['badge-novote', v];
   return `<span class="badge ${c}">${l}</span>`;
 }
@@ -318,13 +284,14 @@ function setupCharts(allItems) {
   const nF = allItems.filter(i => i.pan === 'favor').length;
   const nA = allItems.filter(i => i.pan === 'against').length;
   const nAb = allItems.filter(i => i.pan === 'abstention').length;
-  new Chart(document.getElementById('chartPie'), {
+
+  chartInstances.push(new Chart(document.getElementById('chartPie'), {
     type: 'doughnut',
     data: { labels: ['A Favor', 'Contra', 'Abstenção'], datasets: [{ data: [nF, nA, nAb], backgroundColor: ['#2d6a4f', '#dc2626', '#ca8a04'], borderWidth: 0 }] },
     options: { responsive: true, plugins: { legend: { position: 'bottom' } } }
-  });
+  }));
 
-  const partyOrder = ['PS', 'PPD/PSD', 'CH', 'CDS-PP', 'CDU', 'LIVRE', 'IL', 'MPT'];
+  const partyOrder = ['PS', 'PPD/PSD', 'CH', 'CDS-PP', 'CDU', 'LIVRE', 'IL', 'MPT', 'PSD'];
   const alignment = {};
   partyOrder.forEach(p => { alignment[p] = { agree: 0, total: 0 }; });
   allItems.forEach(item => {
@@ -339,7 +306,8 @@ function setupCharts(allItems) {
   const labels = partyOrder.filter(p => alignment[p].total > 0);
   const alignPct = labels.map(p => Math.round(alignment[p].agree / alignment[p].total * 100));
   const totalVotes = labels.map(p => alignment[p].total);
-  new Chart(document.getElementById('chartAlign'), {
+
+  chartInstances.push(new Chart(document.getElementById('chartAlign'), {
     type: 'bar',
     data: {
       labels: labels.map(p => pn(p)),
@@ -353,7 +321,7 @@ function setupCharts(allItems) {
       scales: { y: { beginAtZero: true, max: 100, grid: { color: 'rgba(0,0,0,.05)' } } },
       plugins: { legend: { position: 'bottom' }, tooltip: { callbacks: { label: ctx => ctx.dataset.label + ': ' + ctx.parsed.y + (ctx.datasetIndex === 0 ? '%' : '') } } }
     }
-  });
+  }));
 
   const byProposer = {};
   allItems.filter(i => i.proposedBy !== 'Mesa' && i.proposedBy !== 'CM' && i.proposedBy !== '-').forEach(i => {
@@ -361,21 +329,23 @@ function setupCharts(allItems) {
     byProposer[i.proposedBy][i.pan]++;
   });
   const propLabels = Object.keys(byProposer);
-  new Chart(document.getElementById('chartProposals'), {
-    type: 'bar',
-    data: {
-      labels: propLabels.map(p => pn(p)),
-      datasets: [
-        { label: 'PAN A Favor', data: propLabels.map(p => byProposer[p].favor), backgroundColor: '#2d6a4f' },
-        { label: 'PAN Contra', data: propLabels.map(p => byProposer[p].against), backgroundColor: '#dc2626' },
-        { label: 'PAN Abstenção', data: propLabels.map(p => byProposer[p].abstention), backgroundColor: '#ca8a04' }
-      ]
-    },
-    options: { responsive: true, scales: { x: { stacked: true }, y: { stacked: true } }, plugins: { legend: { position: 'bottom' } } }
-  });
+  if (propLabels.length > 0) {
+    chartInstances.push(new Chart(document.getElementById('chartProposals'), {
+      type: 'bar',
+      data: {
+        labels: propLabels.map(p => pn(p)),
+        datasets: [
+          { label: 'PAN A Favor', data: propLabels.map(p => byProposer[p].favor), backgroundColor: '#2d6a4f' },
+          { label: 'PAN Contra', data: propLabels.map(p => byProposer[p].against), backgroundColor: '#dc2626' },
+          { label: 'PAN Abstenção', data: propLabels.map(p => byProposer[p].abstention), backgroundColor: '#ca8a04' }
+        ]
+      },
+      options: { responsive: true, scales: { x: { stacked: true }, y: { stacked: true } }, plugins: { legend: { position: 'bottom' } } }
+    }));
+  }
 
   const agreePct = labels.map(p => Math.round(alignment[p].agree / alignment[p].total * 100));
-  new Chart(document.getElementById('chartAgree'), {
+  chartInstances.push(new Chart(document.getElementById('chartAgree'), {
     type: 'radar',
     data: {
       labels: labels.map(p => pn(p)),
@@ -390,10 +360,10 @@ function setupCharts(allItems) {
       }]
     },
     options: { responsive: true, scales: { r: { beginAtZero: true, max: 100, ticks: { stepSize: 20 } } }, plugins: { legend: { display: false } } }
-  });
+  }));
 }
 
-init();
+switchMunicipality('faro');
 </script>
 </body>
 </html>

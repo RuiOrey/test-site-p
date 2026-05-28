@@ -1,0 +1,119 @@
+{
+  "meta": {
+    "name": "Faro",
+    "source": "https://www.am-faro.pt/",
+    "panReps": [
+      { "name": "Carlos Gonçalves", "sessions": [48, 49, 52, 53] },
+      { "name": "Pedro Silva", "sessions": [54, 55] }
+    ],
+    "composition": {
+      "PS": { "seats": 4, "color": "#e53e3e" },
+      "PPD/PSD": { "seats": 2, "color": "#2563eb" },
+      "CH": { "seats": 2, "color": "#1e293b" },
+      "CDS-PP": { "seats": 2, "color": "#0891b2" },
+      "CDU": { "seats": 1, "color": "#dc2626" },
+      "MPT": { "seats": 1, "color": "#059669" },
+      "LIVRE": { "seats": 1, "color": "#d97706" },
+      "IL": { "seats": 1, "color": "#7c3aed" },
+      "PAN": { "seats": 1, "color": "#2d6a4f" }
+    }
+  },
+  "sessions": [
+    {
+      "session": 48, "date": "2025-11-27", "type": "Extraordinária",
+      "rep": "Carlos Gonçalves", "local": "Salão Nobre, Faro",
+      "source": "https://www.am-faro.pt/sessoes/48",
+      "items": [
+        { "item": "Aprovação ata eleição Mesa", "proposedBy": "Mesa", "pan": "favor", "votes": { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"favor" } },
+        { "item": "Alteração Regimento art. 9º", "proposedBy": "Mesa", "pan": "favor", "votes": { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"favor" } },
+        { "item": "Alteração Regimento art. 24º", "proposedBy": "Mesa", "pan": "favor", "votes": { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"favor" } },
+        { "item": "Alteração Regimento art. 28º", "proposedBy": "Mesa", "pan": "favor", "votes": { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"favor" } },
+        { "item": "Alteração Regimento art. 29º", "proposedBy": "Mesa", "pan": "favor", "votes": { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"favor" } },
+        { "item": "Artigo 34º — Horário alternativo", "proposedBy": "Mesa", "pan": "abstention", "votes": { "PS":"abstention","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"abstention","MPT":"favor","LIVRE":"abstention","IL":"favor" } },
+        { "item": "Artigo 67º", "proposedBy": "Mesa", "pan": "against", "votes": { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"against","LIVRE":"abstention","IL":"against" } },
+        { "item": "Artigo 68º", "proposedBy": "Mesa", "pan": "favor", "votes": { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"favor" } },
+        { "item": "Artigo 70º", "proposedBy": "Mesa", "pan": "favor", "votes": { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"favor" } },
+        { "item": "Duração mandato Mesa", "proposedBy": "Mesa", "pan": "abstention", "votes": { "PS":"abstention","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"abstention","MPT":"abstention","LIVRE":"abstention","IL":"favor" } },
+        { "item": "Remuneração Mesa", "proposedBy": "Mesa", "pan": "against", "votes": { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"against","LIVRE":"against","IL":"favor" } }
+      ]
+    },
+    {
+      "session": 49, "date": "2025-12-29", "type": "Ordinária",
+      "rep": "Carlos Gonçalves", "local": "Salão Nobre, Faro",
+      "source": "https://www.am-faro.pt/sessoes/49",
+      "items": [
+        { "item": "Aprovação ata 27/11/2025", "proposedBy": "Mesa", "pan": "favor", "votes": { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"favor" } },
+        { "item": "Voto de Louvor Lídia Jorge", "proposedBy": "Mesa", "pan": "favor", "votes": { "PS":"favor","PPD/PSD":"favor","CH":"against","CDS-PP":"abstention","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"favor" } },
+        { "item": "Voto de Pesar José Zeferino", "proposedBy": "Mesa", "pan": "favor", "votes": { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"favor" } },
+        { "item": "Voto de Louvor Arena Faro", "proposedBy": "Mesa", "pan": "favor", "votes": { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"favor" } },
+        { "item": "Voto de Louvor Pedro Graça", "proposedBy": "Mesa", "pan": "favor", "votes": { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"favor" } },
+        { "item": "Voto de Pesar Artur Lara Ramos", "proposedBy": "Mesa", "pan": "favor", "votes": { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"favor" } },
+        { "item": "Orçamento 2026-2030", "proposedBy": "CM", "pan": "favor", "votes": { "PS":"favor","PPD/PSD":"abstention","CH":"against","CDS-PP":"favor","CDU":"abstention","MPT":"abstention","LIVRE":"abstention","IL":"against" } }
+      ]
+    },
+    {
+      "session": 52, "date": "2026-02-24", "type": "Ordinária",
+      "rep": "Carlos Gonçalves", "local": "Salão Nobre, Faro",
+      "source": "https://www.am-faro.pt/sessoes/52",
+      "items": [
+        { "item": "Aprovação Ata nº 3", "proposedBy": "Mesa", "pan": "favor", "votes": { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"favor" } },
+        { "item": "Aprovação Ata nº 4", "proposedBy": "Mesa", "pan": "favor", "votes": { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"favor" } },
+        { "item": "Voto de Louvor Isaac Nader", "proposedBy": "Mesa", "pan": "favor", "votes": { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"favor" } },
+        { "item": "Voto de Pesar José Carlos Rolo", "proposedBy": "Mesa", "pan": "favor", "votes": { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"favor" } },
+        { "item": "Moção CDU — 8 de Março", "proposedBy": "CDU", "pan": "abstention", "votes": { "PS":"favor","PPD/PSD":"abstention","CH":"abstention","CDS-PP":"abstention","CDU":"favor","MPT":"abstention","LIVRE":"favor","IL":"abstention" } },
+        { "item": "Moção LIVRE — Arvoredo Urbano", "proposedBy": "LIVRE", "pan": "favor", "votes": { "PS":"favor","PPD/PSD":"favor","CH":"abstention","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"favor" } },
+        { "item": "ZEP Edifício RTP", "proposedBy": "CM", "pan": "favor", "votes": { "PS":"favor","PPD/PSD":"favor","CH":"abstention","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"against" } },
+        { "item": "Revogação Dir. Superfície L6 (Ténis)", "proposedBy": "CM", "pan": "favor", "votes": { "PS":"favor","PPD/PSD":"favor","CH":"against","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"against","IL":"favor" } },
+        { "item": "Alienação lote Av. Hayward", "proposedBy": "CM", "pan": "favor", "votes": { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"favor" } },
+        { "item": "1ª Alt. Orçamento 2026", "proposedBy": "CM", "pan": "favor", "votes": { "PS":"favor","PPD/PSD":"favor","CH":"against","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"against","IL":"against" } },
+        { "item": "1ª Alt. Orçamental TM Faro", "proposedBy": "CM", "pan": "favor", "votes": { "PS":"favor","PPD/PSD":"favor","CH":"against","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"abstention" } },
+        { "item": "Conselho Municipal Educação", "proposedBy": "CM", "pan": "favor", "votes": { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"favor" } }
+      ]
+    },
+    {
+      "session": 53, "date": "2026-03-26", "type": "Extraordinária",
+      "rep": "Carlos Gonçalves", "local": "Salão Nobre, Faro",
+      "source": "https://www.am-faro.pt/sessoes/53",
+      "items": [
+        { "item": "Voto de Pesar Mário Zambujal", "proposedBy": "Mesa", "pan": "favor", "votes": { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"favor" } },
+        { "item": "Voto de Louvor Rui Sequeira", "proposedBy": "Mesa", "pan": "favor", "votes": { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"favor" } },
+        { "item": "Votos de Louvor Isaac Nader", "proposedBy": "Mesa", "pan": "favor", "votes": { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"favor" } },
+        { "item": "Aprovação Ata anterior", "proposedBy": "Mesa", "pan": "favor", "votes": { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"abstention","MPT":"favor","LIVRE":"favor","IL":"abstention" } },
+        { "item": "Carta Educativa Faro 2026", "proposedBy": "CM", "pan": "favor", "votes": { "PS":"favor","PPD/PSD":"favor","CH":"mixed","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"favor" } }
+      ]
+    },
+    {
+      "session": 55, "date": "2026-04-25", "type": "Extraordinária",
+      "rep": "Pedro Silva", "local": "Escola Hotelaria Turismo Algarve",
+      "source": "https://www.am-faro.pt/sessoes/55",
+      "items": [
+        { "item": "Sessão Evocativa 25 de Abril", "proposedBy": "-", "pan": "commemorative", "votes": {} }
+      ]
+    },
+    {
+      "session": 54, "date": "2026-04-28", "type": "Ordinária",
+      "rep": "Pedro Silva", "local": "Salão Nobre, Faro",
+      "source": "https://www.am-faro.pt/sessoes/54",
+      "items": [
+        { "item": "Voto de Pesar Álvaro Cassuto", "proposedBy": "Mesa", "pan": "favor", "votes": { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"-" } },
+        { "item": "Voto de Louvor Pedro Graça", "proposedBy": "Mesa", "pan": "favor", "votes": { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"-" } },
+        { "item": "Voto de Louvor Cineclube Faro", "proposedBy": "Mesa", "pan": "favor", "votes": { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"-" } },
+        { "item": "Voto de Louvor Salvador Valente", "proposedBy": "Mesa", "pan": "favor", "votes": { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"-" } },
+        { "item": "Moção Mateus Moreno Jr.", "proposedBy": "CH", "pan": "against", "votes": { "PS":"abstention","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"against","MPT":"favor","LIVRE":"abstention","IL":"-" } },
+        { "item": "Moção Auditoria FAGAR", "proposedBy": "CH", "pan": "favor", "votes": { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"abstention","MPT":"abstention","LIVRE":"abstention","IL":"-" } },
+        { "item": "Moção Reforço Fiscalização Obras", "proposedBy": "PPD/PSD", "pan": "favor", "votes": { "PS":"abstention","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"-" } },
+        { "item": "Proposta Julgado Paz Faro", "proposedBy": "PPD/PSD", "pan": "favor", "votes": { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"abstention","MPT":"favor","LIVRE":"abstention","IL":"-" } },
+        { "item": "Regimento AM Jovem", "proposedBy": "CM", "pan": "favor", "votes": { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"-" } },
+        { "item": "Prestação Contas 2025", "proposedBy": "CM", "pan": "abstention", "votes": { "PS":"favor","PPD/PSD":"abstention","CH":"abstention","CDS-PP":"favor","CDU":"abstention","MPT":"abstention","LIVRE":"abstention","IL":"-" } },
+        { "item": "2ª Alt. Orçamento 2026", "proposedBy": "CM", "pan": "favor", "votes": { "PS":"favor","PPD/PSD":"favor","CH":"mixed","CDS-PP":"favor","CDU":"abstention","MPT":"abstention","LIVRE":"abstention","IL":"abstention" } },
+        { "item": "Auditor Externo 2026/2029", "proposedBy": "CM", "pan": "favor", "votes": { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"-" } },
+        { "item": "Contrato Cooperação PSP", "proposedBy": "CM", "pan": "favor", "votes": { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"abstention","MPT":"favor","LIVRE":"favor","IL":"-" } },
+        { "item": "Contrato Mercado Estoi", "proposedBy": "CM", "pan": "favor", "votes": { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"abstention","MPT":"abstention","LIVRE":"favor","IL":"-" } },
+        { "item": "Contrato Juntas Freguesia", "proposedBy": "CM", "pan": "favor", "votes": { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"-" } },
+        { "item": "Moção Intenção Recompra FAGAR", "proposedBy": "CH", "pan": "favor", "votes": { "PS":"favor","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"favor","MPT":"favor","LIVRE":"favor","IL":"-" } },
+        { "item": "Saudação 25 Abril / 1º Maio", "proposedBy": "CDU", "pan": "favor", "votes": { "PS":"favor","PPD/PSD":"mixed","CH":"against","CDS-PP":"favor","CDU":"favor","MPT":"abstention","LIVRE":"favor","IL":"-" } },
+        { "item": "Moção Resiliência Hídrica", "proposedBy": "CH", "pan": "abstention", "votes": { "PS":"abstention","PPD/PSD":"favor","CH":"favor","CDS-PP":"favor","CDU":"against","MPT":"favor","LIVRE":"abstention","IL":"-" } }
+      ]
+    }
+  ]
+}
