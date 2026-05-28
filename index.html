@@ -66,8 +66,16 @@ tr.clickable:hover .detail-icon { color: #2d6a4f; }
 .muni-tab { padding: .5rem 1.2rem; border: 1px solid rgba(255,255,255,.3); border-radius: 8px; font-family: inherit; font-size: .85rem; background: rgba(255,255,255,.1); color: rgba(255,255,255,.7); font-weight: 500; cursor: pointer; transition: all .15s; outline: none; }
 .muni-tab:hover { background: rgba(255,255,255,.2); color: white; }
 .muni-tab.active { background: rgba(255,255,255,.95); color: #1a1a2e; border-color: transparent; }
-.animal-card { background: #ecfdf5; border: 2px solid #2d6a4f; border-radius: 12px; padding: 1.2rem 1.4rem; margin-bottom: 1.5rem; font-size: .92rem; color: #14532d; line-height: 1.6; box-shadow: 0 4px 12px rgba(45,106,79,.1); }
-.animal-card strong { color: #0f3b2a; }
+.animal-card { border-radius: 12px; padding: 1rem 1.2rem; margin-bottom: .75rem; font-size: .85rem; line-height: 1.5; }
+.animal-card:last-child { margin-bottom: 1.5rem; }
+.animal-card .card-title { font-weight: 700; font-size: .82rem; margin-bottom: .4rem; display: flex; align-items: center; gap: .4rem; }
+.animal-card .card-title .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; flex-shrink: 0; }
+.animal-card.green { background: #ecfdf5; border: 2px solid #2d6a4f; color: #14532d; box-shadow: 0 4px 12px rgba(45,106,79,.1); }
+.animal-card.green .card-title { color: #0f3b2a; }
+.animal-card.yellow { background: #fffbeb; border: 2px solid #d97706; color: #92400e; box-shadow: 0 4px 12px rgba(217,119,6,.1); }
+.animal-card.yellow .card-title { color: #78350f; }
+.animal-card.red { background: #fef2f2; border: 2px solid #dc2626; color: #991b1b; box-shadow: 0 4px 12px rgba(220,38,38,.1); }
+.animal-card.red .card-title { color: #7f1d1d; }
 .rep-bar { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: .5rem; }
 .muni-link { display: inline-block; margin-top: 1rem; font-size: .85rem; color: #2d6a4f; text-decoration: none; padding: .5rem 1rem; border: 1px solid #bbf7d0; border-radius: 8px; background: #f0fdf4; font-weight: 500; transition: all .15s; }
 .muni-link:hover { background: #2d6a4f; color: white; border-color: #2d6a4f; }
@@ -265,9 +273,24 @@ function renderRepCard(r) {
 }
 
 function renderAnimalMeasures(meta) {
-  if (!meta.animalMeasures) return '';
-  return `<div class="animal-card"><strong>🐾 Medidas Animais:</strong> ${meta.animalMeasures}</div>`;
+  const am = meta.animalMeasures;
+  if (!am) return '';
+  const sections = [];
+  if (am.municipio) {
+    sections.push(`<div class="animal-card ${am.municipio.status}">
+      <div class="card-title"><span class="dot" style="background:${statusColor(am.municipio.status)}"></span>🏛️ Medidas do Município</div>
+      ${am.municipio.text}
+    </div>`);
+  }
+  if (am.pan) {
+    sections.push(`<div class="animal-card ${am.pan.status}">
+      <div class="card-title"><span class="dot" style="background:${statusColor(am.pan.status)}"></span>🌿 Medidas PAN (mandato atual)</div>
+      ${am.pan.text}
+    </div>`);
+  }
+  return sections.join('');
 }
+function statusColor(s) { return s === 'green' ? '#16a34a' : s === 'yellow' ? '#d97706' : '#dc2626'; }
 
 function renderNews(news) {
   if (!news || news.length === 0) return '';

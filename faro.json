@@ -3,7 +3,16 @@
     "name": "Faro",
     "source": "https://www.am-faro.pt/",
     "url": "https://www.am-faro.pt/",
-    "animalMeasures": "O município tem o CROAF (Centro de Recolha Oficial de Animais de Faro) desde 2023 e lançou em 2025 o programa '4 Patas Solidárias' de apoio a famílias carenciadas com animais (alimento, microchip, desparasitação). Não há propostas animalistas do PAN registadas nas sessões da AM no mandato atual.",
+    "animalMeasures": {
+    "municipio": {
+      "text": "CROAF (Centro de Recolha Oficial de Animais de Faro) desde 2023. Programa '4 Patas Solidárias' (2025) de apoio a famílias carenciadas com animais — alimento, microchip e desparasitação.",
+      "status": "green"
+    },
+    "pan": {
+      "text": "Não há propostas animalistas do PAN registadas nas sessões da AM no mandato atual. Carlos Gonçalves (PAN) integra a coligação FCC na AM.",
+      "status": "red"
+    }
+  },
     "panReps": [
       {
         "name": "Carlos Edgar Alves Gonçalves",

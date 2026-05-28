@@ -3,7 +3,16 @@
     "name": "Vila Real de Santo António",
     "source": "https://www.cm-vrsa.pt/pt/menu/77/composicao.aspx",
     "url": "https://www.cm-vrsa.pt/pt/menu/76/assembleia-municipal.aspx",
-    "animalMeasures": "VRSA tem o programa KAHU de bem-estar animal (CED — Captura, Esterilização, Devolução) desde 2025, com abrigos normalizados e cuidadores reconhecidos. O CROA intermunicipal VRSA/Castro Marim foi profissionalizado em 2026. Aprovada em S6 (2026-02-26) recomendação para Programa Municipal de Identificação e Gestão de Colónias de Gatos e Canídeos Errantes. O acordo PAN/PS (2025) prevê Provedor do Bem-Estar Animal, veterinário dedicado e CROA próprio. PAN não tem representação na AM VRSA para votar estas medidas.",
+    "animalMeasures": {
+    "municipio": {
+      "text": "Programa KAHU de bem-estar animal (CED — Captura, Esterilização, Devolução) desde 2025, com abrigos normalizados. CROA intermunicipal VRSA/Castro Marim profissionalizado em 2026. Aprovada recomendação para Programa Municipal de Gestão de Colónias de Gatos e Canídeos Errantes (S6, 2026-02-26).",
+      "status": "green"
+    },
+    "pan": {
+      "text": "PAN não tem representação na AM VRSA para votar. Acordo PAN/PS (2025) prevê Provedor do Bem-Estar Animal, veterinário dedicado e CROA próprio — em aguardo de implementação.",
+      "status": "yellow"
+    }
+  },
     "panReps": [
       {
         "name": "Saúl Rosa",
