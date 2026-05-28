@@ -109,16 +109,9 @@ async function switchMunicipality(id) {
     if (!resp.ok) throw new Error('Failed to load');
     const data = await resp.json();
     currentData = data;
-    try {
-      renderAll(data);
-    } catch(e) {
-      console.error('renderAll error:', e);
-      document.getElementById('app').innerHTML = `<div class="placeholder-msg"><h3>Erro ao processar dados</h3><p>${e.stack || e.message}</p></div>`;
-    }
+    renderAll(data);
   } catch (e) {
-    console.error('switchMunicipality error:', e);
-    document.getElementById('app').innerHTML = `<div class="placeholder-msg"><h3>Erro ao carregar dados</h3><p>${e.message}</p></div>`;
-    document.getElementById('subtitle').textContent = 'Erro: ' + e.message;
+    document.getElementById('app').innerHTML = `<div class="placeholder-msg"><h3>Erro ao carregar dados</h3><p>Não foi possível carregar os dados do município.</p></div>`;
   }
 }
 
@@ -428,24 +421,6 @@ function setupCharts(allItems) {
       options: { responsive: true, scales: { x: { stacked: true }, y: { stacked: true } }, plugins: { legend: { position: 'bottom' } } }
     }));
   }
-
-  const agreePct = labels.map(p => Math.round(alignment[p].agree / alignment[p].total * 100));
-  chartInstances.push(new Chart(document.getElementById('chartAgree'), {
-    type: 'radar',
-    data: {
-      labels: labels.map(p => pn(p)),
-      datasets: [{
-        label: 'Concordância com PAN (%)',
-        data: agreePct,
-        backgroundColor: 'rgba(45,106,79,.15)',
-        borderColor: '#2d6a4f',
-        pointBackgroundColor: labels.map(p => PARTIES[p]),
-        borderWidth: 2,
-        fill: true
-      }]
-    },
-    options: { responsive: true, scales: { r: { beginAtZero: true, max: 100, ticks: { stepSize: 20 } } }, plugins: { legend: { display: false } } }
-  }));
 }
 
 switchMunicipality(document.getElementById('muniSelect').value);
