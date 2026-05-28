@@ -66,7 +66,7 @@ tr.clickable:hover .detail-icon { color: #2d6a4f; }
 .muni-tab { padding: .5rem 1.2rem; border: 1px solid rgba(255,255,255,.3); border-radius: 8px; font-family: inherit; font-size: .85rem; background: rgba(255,255,255,.1); color: rgba(255,255,255,.7); font-weight: 500; cursor: pointer; transition: all .15s; outline: none; }
 .muni-tab:hover { background: rgba(255,255,255,.2); color: white; }
 .muni-tab.active { background: rgba(255,255,255,.95); color: #1a1a2e; border-color: transparent; }
-.animal-card { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: .6rem 1rem; margin-bottom: 1rem; font-size: .82rem; color: #166534; line-height: 1.5; }
+.animal-card { background: #f0fdf4; border-left: 4px solid #2d6a4f; border-radius: 8px; padding: 1rem 1.2rem; margin-bottom: 1.5rem; font-size: .88rem; color: #166534; line-height: 1.6; box-shadow: 0 1px 3px rgba(0,0,0,.04); }
 .animal-card strong { color: #14532d; }
 .rep-bar { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: .5rem; }
 .placeholder-msg { text-align: center; padding: 3rem 1rem; color: #94a3b8; }
@@ -135,7 +135,7 @@ function renderAll(data) {
   document.getElementById('subtitle').innerHTML = `${meta.name} · Atualizado: Maio 2026 ${meta.url ? `<a href="${meta.url}" target="_blank" style="color:#2d6a4f;text-decoration:none;font-size:.8rem" title="Site da Assembleia Municipal">🔗 AM</a>` : ''}`;
 
   const allSessions = data.sessions || [];
-  const allItems = allSessions.flatMap(s => (s.items || []).filter(i => i.pan !== 'commemorative'));
+  const allItems = allSessions.flatMap(s => (s.items || []));
   const nSessions = allSessions.length;
   const nTotal = allItems.length;
   const nFavor = allItems.filter(i => i.pan === 'favor').length;
@@ -290,7 +290,7 @@ function renderSessions() {
 
   const filtered = sessions.reduce((acc, s) => {
     if (fType !== 'all' && s.type !== fType) return acc;
-    let items = (s.items || []).filter(i => i.pan !== 'commemorative');
+    let items = (s.items || []);
     if (fParty !== 'all') items = items.filter(i => i.proposedBy === fParty);
     if (fVote !== 'all') items = items.filter(i => i.pan === fVote);
     if (items.length > 0) acc.push({ ...s, items });
