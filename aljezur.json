@@ -142,6 +142,7 @@
           "item": "Informação do Presidente da CM — atividade municipal",
           "proposedBy": "CM",
           "pan": "favor",
+          "votes": {},
           "note": "Apreciação sem votação."
         },
         {
@@ -213,6 +214,7 @@
           "item": "Informação do Presidente da CM — atividade e situação financeira",
           "proposedBy": "CM",
           "pan": "favor",
+          "votes": {},
           "note": "Apreciação sem votação. Debate sobre finanças municipais, taxas, e empréstimos."
         },
         {

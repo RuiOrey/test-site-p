@@ -352,6 +352,7 @@ function setupCharts(allItems) {
   const alignment = {};
   partyOrder.forEach(p => { alignment[p] = { agree: 0, total: 0 }; });
   allItems.forEach(item => {
+    if (!item.votes) return;
     Object.entries(item.votes).forEach(([party, vote]) => {
       if (vote === '-' || !alignment[party]) return;
       alignment[party].total++;
@@ -361,27 +362,47 @@ function setupCharts(allItems) {
   });
 
   const labels = partyOrder.filter(p => alignment[p].total > 0);
-  const alignPct = labels.map(p => Math.round(alignment[p].agree / alignment[p].total * 100));
-  const totalVotes = labels.map(p => alignment[p].total);
+  if (labels.length > 0) {
+    const alignPct = labels.map(p => Math.round(alignment[p].agree / alignment[p].total * 100));
+    const totalVotes = labels.map(p => alignment[p].total);
 
-  chartInstances.push(new Chart(document.getElementById('chartAlign'), {
-    type: 'bar',
-    data: {
-      labels: labels.map(p => pn(p)),
-      datasets: [
-        { label: 'Concordância com PAN (%)', data: alignPct, backgroundColor: labels.map(p => PARTIES[p] + '80'), borderColor: labels.map(p => PARTIES[p]), borderWidth: 2, borderRadius: 4 },
-        { label: 'Total votações em comum', data: totalVotes, backgroundColor: 'rgba(100,116,139,.3)', borderRadius: 4 }
-      ]
-    },
-    options: {
-      responsive: true,
-      scales: { y: { beginAtZero: true, max: 100, grid: { color: 'rgba(0,0,0,.05)' } } },
-      plugins: { legend: { position: 'bottom' }, tooltip: { callbacks: { label: ctx => ctx.dataset.label + ': ' + ctx.parsed.y + (ctx.datasetIndex === 0 ? '%' : '') } } }
-    }
-  }));
+    chartInstances.push(new Chart(document.getElementById('chartAlign'), {
+      type: 'bar',
+      data: {
+        labels: labels.map(p => pn(p)),
+        datasets: [
+          { label: 'Concordância com PAN (%)', data: alignPct, backgroundColor: labels.map(p => PARTIES[p] + '80'), borderColor: labels.map(p => PARTIES[p]), borderWidth: 2, borderRadius: 4 },
+          { label: 'Total votações em comum', data: totalVotes, backgroundColor: 'rgba(100,116,139,.3)', borderRadius: 4 }
+        ]
+      },
+      options: {
+        responsive: true,
+        scales: { y: { beginAtZero: true, max: 100, grid: { color: 'rgba(0,0,0,.05)' } } },
+        plugins: { legend: { position: 'bottom' }, tooltip: { callbacks: { label: ctx => ctx.dataset.label + ': ' + ctx.parsed.y + (ctx.datasetIndex === 0 ? '%' : '') } } }
+      }
+    }));
+
+    const agreePct = labels.map(p => Math.round(alignment[p].agree / alignment[p].total * 100));
+    chartInstances.push(new Chart(document.getElementById('chartAgree'), {
+      type: 'radar',
+      data: {
+        labels: labels.map(p => pn(p)),
+        datasets: [{
+          label: 'Concordância com PAN (%)',
+          data: agreePct,
+          backgroundColor: 'rgba(45,106,79,.15)',
+          borderColor: '#2d6a4f',
+          pointBackgroundColor: labels.map(p => PARTIES[p]),
+          borderWidth: 2,
+          fill: true
+        }]
+      },
+      options: { responsive: true, scales: { r: { beginAtZero: true, max: 100, ticks: { stepSize: 20 } } }, plugins: { legend: { display: false } } }
+    }));
+  }
 
   const byProposer = {};
-  allItems.filter(i => i.proposedBy !== 'Mesa' && i.proposedBy !== 'CM' && i.proposedBy !== '-').forEach(i => {
+  allItems.filter(i => i.proposedBy !== 'Mesa' && i.proposedBy !== 'CM' && i.proposedBy !== '-' && ['favor','against','abstention'].includes(i.pan)).forEach(i => {
     if (!byProposer[i.proposedBy]) byProposer[i.proposedBy] = { favor: 0, against: 0, abstention: 0 };
     byProposer[i.proposedBy][i.pan]++;
   });

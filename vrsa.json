@@ -13,12 +13,36 @@
         "note": "Acordo pré-eleitoral PAN/PS (Álvaro Araújo). Primeiro membro do PAN num executivo municipal em Portugal. Participou na sessão extraordinária da CM de 5 de março de 2026.",
         "sessions": [],
         "politicalJourney": [
-          { "party": "PAN", "period": "mar 2026–presente", "role": "Vereador na CM VRSA (acordo PAN/PS)" },
-          { "party": "PAN", "period": "2025–presente", "role": "Presidente da Comissão Política Distrital de Faro" },
-          { "party": "PAN", "period": "2025", "role": "Membro da Comissão Política Nacional (X Congresso, Lista A n.º 6)" },
-          { "party": "PAN", "period": "2024", "role": "Cabeça de lista às legislativas (círculo de Faro)" },
-          { "party": "PAN", "period": "2021", "role": "Primeiro candidato do PAN à CM VRSA" },
-          { "party": "PAN", "period": "2019", "role": "Militante" }
+          {
+            "party": "PAN",
+            "period": "mar 2026–presente",
+            "role": "Vereador na CM VRSA (acordo PAN/PS)"
+          },
+          {
+            "party": "PAN",
+            "period": "2025–presente",
+            "role": "Presidente da Comissão Política Distrital de Faro"
+          },
+          {
+            "party": "PAN",
+            "period": "2025",
+            "role": "Membro da Comissão Política Nacional (X Congresso, Lista A n.º 6)"
+          },
+          {
+            "party": "PAN",
+            "period": "2024",
+            "role": "Cabeça de lista às legislativas (círculo de Faro)"
+          },
+          {
+            "party": "PAN",
+            "period": "2021",
+            "role": "Primeiro candidato do PAN à CM VRSA"
+          },
+          {
+            "party": "PAN",
+            "period": "2019",
+            "role": "Militante"
+          }
         ]
       },
       {
@@ -28,16 +52,37 @@
         "bio": "PS (ex-PAN) — Atualmente Deputada Municipal na AM VRSA pelo Partido Socialista. Foi militante e ativista do PAN: subscritora de proposta de criação de juventude partidária no congresso do PAN de 2023 (Público, 20 mai 2023) e representante do PAN em debate sobre voto jovem na ESGHT/UAlg (nov 2023). Atualmente exerce como PS. Não há registo de votações nominais na AM VRSA para documentar a sua atividade.",
         "sessions": [],
         "politicalJourney": [
-          { "party": "PAN", "period": "até 2024/2025", "role": "Militante e ativista — subscritora de proposta de juventude partidária (congresso PAN 2023), representante do PAN em debate ESGHT/UAlg (2023)" },
-          { "party": "PS", "period": "2025–presente", "role": "Deputada Municipal na AM VRSA (20.º/21.º mandato)" }
+          {
+            "party": "PAN",
+            "period": "até 2024/2025",
+            "role": "Militante e ativista — subscritora de proposta de juventude partidária (congresso PAN 2023), representante do PAN em debate ESGHT/UAlg (2023)"
+          },
+          {
+            "party": "PS",
+            "period": "2025–presente",
+            "role": "Deputada Municipal na AM VRSA (20.º/21.º mandato)"
+          }
         ]
       }
     ],
     "composition": {
-      "AD": { "seats": 10, "color": "#2563eb", "note": "Coligação PSD/CDS-PP" },
-      "PS": { "seats": 10, "color": "#e53e3e" },
-      "CH": { "seats": 3, "color": "#1e293b" },
-      "CDU": { "seats": 1, "color": "#dc2626" }
+      "AD": {
+        "seats": 10,
+        "color": "#2563eb",
+        "note": "Coligação PSD/CDS-PP"
+      },
+      "PS": {
+        "seats": 10,
+        "color": "#e53e3e"
+      },
+      "CH": {
+        "seats": 3,
+        "color": "#1e293b"
+      },
+      "CDU": {
+        "seats": 1,
+        "color": "#dc2626"
+      }
     },
     "note": "VRSA usa Autarquia 360. As atas/deliberações em PDF registam resultados globais (unanimidade/majoria), sem discriminação de votos por partido. Os itens abaixo refletem as deliberações das sessões. PAN não tem representação na AM VRSA, pelo que todos os votos PAN estão marcados como 'novote'. Saúl Rosa é vereador PAN na Câmara Municipal (executivo) desde mar 2026. Damyana Stoykova Kazakova foi PAN e atualmente é PS (20.º/21.º mandato)."
   },
@@ -54,19 +99,22 @@
           "item": "Aquisição de dois veículos de combate a incêndios para Bombeiros de VRSA e Castro Marim (Proposta 257/2025)",
           "proposedBy": "CM",
           "pan": "novote",
-          "note": "Aprovada por unanimidade."
+          "note": "Aprovada por unanimidade.",
+          "votes": {}
         },
         {
           "item": "Alteração orçamental modificativa (Proposta 281/2025)",
           "proposedBy": "CM",
           "pan": "novote",
-          "note": "Aprovada por unanimidade."
+          "note": "Aprovada por unanimidade.",
+          "votes": {}
         },
         {
           "item": "Aprovação da ata n.º 40 (quadriénio 2021/2025)",
           "proposedBy": "Mesa",
           "pan": "novote",
-          "note": "Aprovada por unanimidade."
+          "note": "Aprovada por unanimidade.",
+          "votes": {}
         }
       ]
     },
@@ -81,49 +129,57 @@
           "item": "Aprovação da ata n.º 41 (quadriénio 2021-2025)",
           "proposedBy": "Mesa",
           "pan": "novote",
-          "note": "Aprovada por maioria."
+          "note": "Aprovada por maioria.",
+          "votes": {}
         },
         {
           "item": "Distinção honorífica — António Carlos Henriques Bartolomeu (Proposta 296/2025)",
           "proposedBy": "CM",
           "pan": "novote",
-          "note": "Aprovada por unanimidade. Para ratificação."
+          "note": "Aprovada por unanimidade. Para ratificação.",
+          "votes": {}
         },
         {
           "item": "Eleição de representantes para a AMAL",
           "proposedBy": "Mesa",
           "pan": "novote",
-          "note": "Votação secreta. Eleitos: Francisco Amaral, Célia Paz, Anabela Silva, Manuel Alturas."
+          "note": "Votação secreta. Eleitos: Francisco Amaral, Célia Paz, Anabela Silva, Manuel Alturas.",
+          "votes": {}
         },
         {
           "item": "Desafetação de domínio público — parcela Rua da Praia, Monte Gordo (Proposta 301/2025)",
           "proposedBy": "CM",
           "pan": "novote",
-          "note": "Aprovada por maioria."
+          "note": "Aprovada por maioria.",
+          "votes": {}
         },
         {
           "item": "Fixação de derrama (Proposta 336/2025)",
           "proposedBy": "CM",
           "pan": "novote",
-          "note": "Aprovada por maioria."
+          "note": "Aprovada por maioria.",
+          "votes": {}
         },
         {
           "item": "Taxa Municipal de Direitos de Passagem 2026 (Proposta 337/2025)",
           "proposedBy": "CM",
           "pan": "novote",
-          "note": "Aprovada por maioria."
+          "note": "Aprovada por maioria.",
+          "votes": {}
         },
         {
           "item": "Fixação da taxa de IMI (Proposta 339/2025)",
           "proposedBy": "CM",
           "pan": "novote",
-          "note": "Aprovada por maioria."
+          "note": "Aprovada por maioria.",
+          "votes": {}
         },
         {
           "item": "Participação variável no IRS (Proposta 340/2025)",
           "proposedBy": "CM",
           "pan": "novote",
-          "note": "Aprovada por maioria."
+          "note": "Aprovada por maioria.",
+          "votes": {}
         }
       ]
     },
@@ -138,37 +194,43 @@
           "item": "Designação do júri — Chefe Divisão Gestão Financeira (Proposta 393/2025)",
           "proposedBy": "CM",
           "pan": "novote",
-          "note": "Aprovada por maioria."
+          "note": "Aprovada por maioria.",
+          "votes": {}
         },
         {
           "item": "Alteração orçamental modificativa n.º 8 (Proposta 394/2025)",
           "proposedBy": "CM",
           "pan": "novote",
-          "note": "Aprovada por maioria."
+          "note": "Aprovada por maioria.",
+          "votes": {}
         },
         {
           "item": "Orçamento Municipal e GOP para 2026 (Proposta 382/2025)",
           "proposedBy": "CM",
           "pan": "novote",
-          "note": "Aprovada por maioria."
+          "note": "Aprovada por maioria.",
+          "votes": {}
         },
         {
           "item": "Mapa de pessoal 2026 (Proposta 378/2025)",
           "proposedBy": "CM",
           "pan": "novote",
-          "note": "Aprovada por maioria."
+          "note": "Aprovada por maioria.",
+          "votes": {}
         },
         {
           "item": "Contrato concessão água/águas residuais — retificação (Proposta 364/2025)",
           "proposedBy": "CM",
           "pan": "novote",
-          "note": "Aprovada por maioria."
+          "note": "Aprovada por maioria.",
+          "votes": {}
         },
         {
           "item": "Divulgação online e em direto das sessões da AM via YouTube",
           "proposedBy": "PSD",
           "pan": "novote",
-          "note": "Aprovada por unanimidade. Proposta apresentada pela bancada do PSD."
+          "note": "Aprovada por unanimidade. Proposta apresentada pela bancada do PSD.",
+          "votes": {}
         }
       ]
     },
@@ -183,13 +245,15 @@
           "item": "Eleição do Presidente da CCDR Algarve",
           "proposedBy": "Mesa",
           "pan": "novote",
-          "note": "Votação secreta. José Apolinário Nunes Portada: 24 votos, 3 nulos, 2 brancos."
+          "note": "Votação secreta. José Apolinário Nunes Portada: 24 votos, 3 nulos, 2 brancos.",
+          "votes": {}
         },
         {
           "item": "Eleição de representantes efetivos e suplentes para a AMAL",
           "proposedBy": "Mesa",
           "pan": "novote",
-          "note": "Votação secreta. Efetivos: Francisco Amaral, Célia Paz, Anabela Silva, Manuel Alturas. Suplentes: Miguel Costa, João Reis, Maria Mendes, Beatriz Conceição."
+          "note": "Votação secreta. Efetivos: Francisco Amaral, Célia Paz, Anabela Silva, Manuel Alturas. Suplentes: Miguel Costa, João Reis, Maria Mendes, Beatriz Conceição.",
+          "votes": {}
         }
       ]
     },
@@ -204,13 +268,15 @@
           "item": "Designação de representantes para a Comissão Municipal de Gestão Integrada de Fogos Rurais (Proposta 78/2026)",
           "proposedBy": "CM",
           "pan": "novote",
-          "note": "Aprovada por maioria. Rotação anual entre presidentes de junta."
+          "note": "Aprovada por maioria. Rotação anual entre presidentes de junta.",
+          "votes": {}
         },
         {
           "item": "Alteração Orçamental Modificativa n.º 1 — Saldo de Gerência (Proposta 88/2026)",
           "proposedBy": "CM",
           "pan": "novote",
-          "note": "Aprovada por maioria."
+          "note": "Aprovada por maioria.",
+          "votes": {}
         }
       ]
     },
@@ -225,25 +291,29 @@
           "item": "Aprovação das Atas n.º 1 (Tomada de Posse, 31 out 2025) e n.º 4 (12 jan 2026)",
           "proposedBy": "Mesa",
           "pan": "novote",
-          "note": "Aprovadas por maioria."
+          "note": "Aprovadas por maioria.",
+          "votes": {}
         },
         {
           "item": "Designação de representante para o Conselho Municipal de Saúde",
           "proposedBy": "CM",
           "pan": "novote",
-          "note": "Aprovada por maioria. Designada Ana Gomes (Presidente da JF VRSA)."
+          "note": "Aprovada por maioria. Designada Ana Gomes (Presidente da JF VRSA).",
+          "votes": {}
         },
         {
           "item": "Moção CDU — 8 de março, Dia da Mulher",
           "proposedBy": "CDU",
           "pan": "novote",
-          "note": "Aprovada por maioria."
+          "note": "Aprovada por maioria.",
+          "votes": {}
         },
         {
           "item": "Recomendação — Criação de Programa Municipal de Identificação e Gestão de Colónias de Gatos e Canídeos Errantes",
           "proposedBy": "Mesa",
           "pan": "novote",
-          "note": "Aprovada por maioria. Medida animal: gestão de colónias de gatos e canídeos errantes."
+          "note": "Aprovada por maioria. Medida animal: gestão de colónias de gatos e canídeos errantes.",
+          "votes": {}
         }
       ]
     },
@@ -258,49 +328,57 @@
           "item": "Aprovação das Atas n.º 2 (17 dez 2025), n.º 3 (29 dez 2025) e n.º 5 (12 fev 2026)",
           "proposedBy": "Mesa",
           "pan": "novote",
-          "note": "Aprovadas por maioria."
+          "note": "Aprovadas por maioria.",
+          "votes": {}
         },
         {
           "item": "Adesão do Município à Associação Internacional das Cidades Educadoras",
           "proposedBy": "CM",
           "pan": "novote",
-          "note": "Aprovada por unanimidade."
+          "note": "Aprovada por unanimidade.",
+          "votes": {}
         },
         {
           "item": "Protocolo delegação de competências na JF VRSA — 2026",
           "proposedBy": "CM",
           "pan": "novote",
-          "note": "Aprovada por unanimidade."
+          "note": "Aprovada por unanimidade.",
+          "votes": {}
         },
         {
           "item": "Protocolo delegação de competências na JF Vila Nova de Cacela — 2026",
           "proposedBy": "CM",
           "pan": "novote",
-          "note": "Aprovada por unanimidade."
+          "note": "Aprovada por unanimidade.",
+          "votes": {}
         },
         {
           "item": "Aprovação de Contas de 2025",
           "proposedBy": "CM",
           "pan": "novote",
-          "note": "Aprovada por maioria."
+          "note": "Aprovada por maioria.",
+          "votes": {}
         },
         {
           "item": "Revogação da deliberação sobre Subconcessão do Antigo Dormitório da Estação (Proposta 155/2024)",
           "proposedBy": "CM",
           "pan": "novote",
-          "note": "Aprovada por maioria."
+          "note": "Aprovada por maioria.",
+          "votes": {}
         },
         {
           "item": "Distinções Honoríficas do Município",
           "proposedBy": "CM",
           "pan": "novote",
-          "note": "Aprovadas por unanimidade."
+          "note": "Aprovadas por unanimidade.",
+          "votes": {}
         },
         {
           "item": "Recomendação 'Apoio à Natalidade no Concelho'",
           "proposedBy": "Mesa",
           "pan": "novote",
-          "note": "Aprovada por maioria."
+          "note": "Aprovada por maioria.",
+          "votes": {}
         }
       ]
     }
