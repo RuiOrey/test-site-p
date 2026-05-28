@@ -53,14 +53,14 @@
         "sessions": [],
         "politicalJourney": [
           {
-            "party": "PAN",
-            "period": "até 2024/2025",
-            "role": "Militante e ativista — subscritora de proposta de juventude partidária (congresso PAN 2023), representante do PAN em debate ESGHT/UAlg (2023)"
-          },
-          {
             "party": "PS",
             "period": "2025–presente",
             "role": "Deputada Municipal na AM VRSA (20.º/21.º mandato)"
+          },
+          {
+            "party": "PAN",
+            "period": "até 2024/2025",
+            "role": "Militante e ativista — subscritora de proposta de juventude partidária (congresso PAN 2023), representante do PAN em debate ESGHT/UAlg (2023)"
           }
         ]
       }
