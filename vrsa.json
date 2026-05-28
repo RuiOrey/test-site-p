@@ -2,13 +2,80 @@
   "meta": {
     "name": "Vila Real de Santo António",
     "source": "https://www.cm-vrsa.pt/pt/menu/77/composicao.aspx",
-    "panReps": [],
+    "panReps": [
+      {
+        "name": "Saúl Rosa",
+        "type": "coligação",
+        "role": "Vereador (Câmara Municipal, regime de substituição)",
+        "note": "Acordo pré-eleitoral PAN/PS (Álvaro Araújo). Primeiro membro do PAN num executivo municipal em Portugal. Participou na sessão extraordinária da CM de 5 de março de 2026.",
+        "sessions": []
+      }
+    ],
     "composition": {
       "AD": { "seats": 10, "color": "#2563eb", "note": "Coligação PSD/CDS-PP" },
       "PS": { "seats": 10, "color": "#e53e3e" },
       "CH": { "seats": 3, "color": "#1e293b" },
       "CDU": { "seats": 1, "color": "#dc2626" }
-    }
+    },
+    "note": "VRSA usa Autarquia 360. As atas/deliberações disponíveis em PDF registam apenas resultados globais (unanimidade/majoria), sem discriminação de votos por partido ou membro individual. Não é possível extrair votações individuais sem acesso a registos nominais. A Damyana Stoykova Kazakova (PS, 20.º mandato) é membro da AM mas não há registo de voto nominal."
   },
-  "sessions": []
+  "sessions": [
+    {
+      "session": 1,
+      "date": "2025-10-09",
+      "label": "Sessão Extraordinária (Instalação)",
+      "type": "Instalação",
+      "rep": "Saúl Rosa (PAN - CM, não AM)",
+      "source": "https://www.cm-vrsa.pt/pt/menu/80/deliberacoes.aspx",
+      "items": []
+    },
+    {
+      "session": 2,
+      "date": "2025-12-17",
+      "label": "Sessão Extraordinária",
+      "type": "Extraordinária",
+      "source": "https://www.cm-vrsa.pt/pt/menu/4686/2025.aspx",
+      "items": []
+    },
+    {
+      "session": 3,
+      "date": "2025-12-29",
+      "label": "Sessão Ordinária",
+      "type": "Ordinária",
+      "source": "https://www.cm-vrsa.pt/pt/menu/4686/2025.aspx",
+      "items": []
+    },
+    {
+      "session": 4,
+      "date": "2026-01-12",
+      "label": "Sessão Extraordinária",
+      "type": "Extraordinária",
+      "source": "https://www.cm-vrsa.pt/pt/menu/4718/2026.aspx",
+      "items": []
+    },
+    {
+      "session": 5,
+      "date": "2026-02-12",
+      "label": "Sessão Extraordinária",
+      "type": "Extraordinária",
+      "source": "https://www.cm-vrsa.pt/pt/menu/4718/2026.aspx",
+      "items": []
+    },
+    {
+      "session": 6,
+      "date": "2026-02-26",
+      "label": "Sessão Ordinária",
+      "type": "Ordinária",
+      "source": "https://www.cm-vrsa.pt/pt/menu/4718/2026.aspx",
+      "items": []
+    },
+    {
+      "session": 7,
+      "date": "2026-04-28",
+      "label": "Sessão Ordinária",
+      "type": "Ordinária",
+      "source": "https://www.cm-vrsa.pt/pt/menu/4718/2026.aspx",
+      "items": []
+    }
+  ]
 }
