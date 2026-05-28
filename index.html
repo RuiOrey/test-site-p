@@ -109,10 +109,16 @@ async function switchMunicipality(id) {
     if (!resp.ok) throw new Error('Failed to load');
     const data = await resp.json();
     currentData = data;
-    renderAll(data);
+    try {
+      renderAll(data);
+    } catch(e) {
+      console.error('renderAll error:', e);
+      document.getElementById('app').innerHTML = `<div class="placeholder-msg"><h3>Erro ao processar dados</h3><p>${e.stack || e.message}</p></div>`;
+    }
   } catch (e) {
-    console.error(e);
+    console.error('switchMunicipality error:', e);
     document.getElementById('app').innerHTML = `<div class="placeholder-msg"><h3>Erro ao carregar dados</h3><p>${e.message}</p></div>`;
+    document.getElementById('subtitle').textContent = 'Erro: ' + e.message;
   }
 }
 
