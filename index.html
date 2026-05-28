@@ -111,7 +111,8 @@ async function switchMunicipality(id) {
     currentData = data;
     renderAll(data);
   } catch (e) {
-    document.getElementById('app').innerHTML = `<div class="placeholder-msg"><h3>Erro ao carregar dados</h3><p>Não foi possível carregar os dados do município.</p></div>`;
+    console.error(e);
+    document.getElementById('app').innerHTML = `<div class="placeholder-msg"><h3>Erro ao carregar dados</h3><p>${e.message}</p></div>`;
   }
 }
 
