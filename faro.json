@@ -3,8 +3,8 @@
     "name": "Faro",
     "source": "https://www.am-faro.pt/",
     "panReps": [
-      { "name": "Carlos Gonçalves", "sessions": [48, 49, 52, 53] },
-      { "name": "Pedro Silva", "sessions": [54, 55] }
+      { "name": "Carlos Gonçalves", "type": "directa", "sessions": [48, 49, 52, 53] },
+      { "name": "Pedro Silva", "type": "directa", "sessions": [54, 55] }
     ],
     "composition": {
       "PS": { "seats": 4, "color": "#e53e3e" },

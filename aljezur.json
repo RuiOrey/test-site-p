@@ -3,15 +3,236 @@
     "name": "Aljezur",
     "source": "https://cm-aljezur.pt/pt/menu/57/reunioes.aspx",
     "panReps": [
-      { "name": "Marta Noz", "list": "Renascer – Movimento Independente", "sessions": [] }
+      { "name": "Marta Nogueira de Goed", "type": "independente", "list": "Renascer – Movimento Independente", "sessions": [1, 2, 3, 4, 5] }
     ],
     "composition": {
-      "Renascer": { "seats": 5, "color": "#0d9488", "note": "inclui PAN (Marta Noz)" },
-      "PS": { "seats": 3, "color": "#e53e3e" },
-      "PSD": { "seats": 2, "color": "#2563eb" },
-      "CDU": { "seats": 1, "color": "#dc2626" },
-      "JF": { "seats": 3, "color": "#64748b", "note": "Presidentes de Junta" }
+      "Renascer": { "seats": 9, "color": "#0d9488", "note": "inclui PAN (Marta Noz)" },
+      "PS": { "seats": 6, "color": "#e53e3e" }
     }
   },
-  "sessions": []
+  "sessions": [
+    {
+      "session": 1, "date": "2025-11-03", "rep": "Marta Noz", "type": "Instalação",
+      "local": "Espaço +, Aljezur",
+      "source": "https://cms.cm-aljezur.pt//upload_files/client_id_2/website_id_1/Autarquia/Assembleia_Municipal/Atas_2025/ata_2025-11-03.pdf",
+      "items": [
+        {
+          "item": "Eleição do Presidente e Secretários da Mesa da AM",
+          "proposedBy": "Renascer",
+          "pan": "favor",
+          "votes": { "Renascer":"favor","PS":"favor" },
+          "note": "Ata 1/2025 — Sessão de instalação do mandato 2025-2029. Lista única do Renascer (João Carreiro presidente), eleita por maioria."
+        },
+        {
+          "item": "Aprovação da ata",
+          "proposedBy": "Mesa",
+          "pan": "favor",
+          "votes": { "Renascer":"favor","PS":"favor" }
+        }
+      ]
+    },
+    {
+      "session": 2, "date": "2025-11-21", "type": "Extraordinária",
+      "local": "Paços do Município, Aljezur",
+      "source": "https://cms.cm-aljezur.pt//upload_files/client_id_2/website_id_1/Autarquia/Assembleia_Municipal/Atas_2025/ata_2025-11-21.pdf",
+      "rep": "Marta Noz",
+      "items": [
+        {
+          "item": "Aprovação da ata da sessão de 18/09/2025",
+          "proposedBy": "Mesa",
+          "pan": "favor",
+          "votes": { "Renascer":"favor","PS":"favor" }
+        },
+        {
+          "item": "Indicação dos representantes dos Grupos Municipais",
+          "proposedBy": "Mesa",
+          "pan": "favor",
+          "votes": { "Renascer":"favor","PS":"favor" },
+          "note": "Renascer indicou Dionísio Silva (porta-voz) e Marta Goed (substituta). PS indicou Mário Costa."
+        },
+        {
+          "item": "Eleição ANMP — representante efetivo e substituto",
+          "proposedBy": "Renascer",
+          "pan": "favor",
+          "votes": { "Renascer":"favor","PS":"favor" },
+          "note": "Eleito Eugénio Arez (PS/JF Aljezur) com 19 votos a favor."
+        },
+        {
+          "item": "Eleição AMAL — membros da Assembleia Intermunicipal",
+          "proposedBy": "Renascer",
+          "pan": "favor",
+          "votes": { "Renascer":"favor","PS":"against" },
+          "note": "Lista A (PS): 6 votos. Lista B (Renascer): 9 votos. Eleitos: João Carreiro (Renascer) e Mário Costa (PS) pelo método de Hondt."
+        },
+        {
+          "item": "Eleição Conselho Municipal de Educação",
+          "proposedBy": "Renascer",
+          "pan": "favor",
+          "votes": { "Renascer":"favor","PS":"against" },
+          "note": "Lista A (Renascer/Paulo Águas): 11 votos. Lista B (PS/Eugénio Arez): 8 votos."
+        },
+        {
+          "item": "Eleição Conselho Cinegético e Conservação da Fauna",
+          "proposedBy": "Renascer",
+          "pan": "favor",
+          "votes": { "Renascer":"favor","PS":"against" },
+          "note": "Lista A (PS/José Landeiro): 8 votos. Lista B (Renascer/José Pacheco): 11 votos."
+        },
+        {
+          "item": "Designação Comissão Municipal de Gestão de Fogos Rurais",
+          "proposedBy": "PS",
+          "pan": "favor",
+          "votes": { "Renascer":"favor","PS":"favor" },
+          "note": "Proposta conjunta: Eugénio Arez (JF Aljezur) e José Pacheco (JF Bordeira). 19 votos a favor."
+        },
+        {
+          "item": "Eleição Conselho Municipal de Saúde",
+          "proposedBy": "Renascer",
+          "pan": "favor",
+          "votes": { "Renascer":"favor","PS":"against" },
+          "note": "Lista A (Renascer/Paulo Águas): 11 votos. Lista B (PS/Eugénio Arez): 8 votos."
+        },
+        {
+          "item": "Designação CPCJ — Comissão Proteção Crianças e Jovens",
+          "proposedBy": "Renascer",
+          "pan": "favor",
+          "votes": { "Renascer":"favor","PS":"against" },
+          "note": "Lista A (Renascer/Marta Ferreira, Dionísio Silva): 11 votos. Lista B (PS): 8 votos."
+        },
+        {
+          "item": "Comissão Eventual para o Projeto de Regimento da AM",
+          "proposedBy": "Mesa",
+          "pan": "favor",
+          "votes": { "Renascer":"favor","PS":"favor" },
+          "note": "Proposta acordada entre PS e Renascer. Marta Goed nomeada como membro da comissão."
+        },
+        {
+          "item": "Aprovação da ata em minuta",
+          "proposedBy": "Mesa",
+          "pan": "favor",
+          "votes": { "Renascer":"favor","PS":"favor" }
+        }
+      ]
+    },
+    {
+      "session": 3, "date": "2025-12-29", "type": "Ordinária",
+      "local": "Paços do Município, Aljezur",
+      "source": "https://cms.cm-aljezur.pt//upload_files/client_id_2/website_id_1/Autarquia/Assembleia_Municipal/Atas_2025/ata_2025-12-29.pdf",
+      "rep": "Marta Noz",
+      "items": [
+        {
+          "item": "Aprovação da ata da sessão anterior",
+          "proposedBy": "Mesa",
+          "pan": "favor",
+          "votes": { "Renascer":"favor","PS":"favor" }
+        },
+        {
+          "item": "Informação do Presidente da CM — atividade municipal",
+          "proposedBy": "CM",
+          "pan": "favor",
+          "note": "Apreciação sem votação."
+        },
+        {
+          "item": "Eleição Conselho Municipal de Educação",
+          "proposedBy": "CM",
+          "pan": "favor",
+          "votes": { "Renascer":"favor","PS":"favor" }
+        },
+        {
+          "item": "Alteração ao PDM — atualização determinada pelo CCPI",
+          "proposedBy": "CM",
+          "pan": "favor",
+          "votes": { "Renascer":"favor","PS":"favor" }
+        },
+        {
+          "item": "Participação financeira na AMAL",
+          "proposedBy": "CM",
+          "pan": "favor",
+          "votes": { "Renascer":"favor","PS":"favor" }
+        },
+        {
+          "item": "Fixação das taxas de derrama 2026",
+          "proposedBy": "CM",
+          "pan": "favor",
+          "votes": { "Renascer":"favor","PS":"favor" }
+        },
+        {
+          "item": "Lançamento taxas IMI 2026",
+          "proposedBy": "CM",
+          "pan": "favor",
+          "votes": { "Renascer":"favor","PS":"favor" }
+        }
+      ]
+    },
+    {
+      "session": 4, "date": "2026-01-12", "type": "Extraordinária",
+      "local": "Paços do Município, Aljezur",
+      "source": "https://cms.cm-aljezur.pt//upload_files/client_id_2/website_id_1/Autarquia/Assembleia_Municipal/Atas_2026/ata_2026-01-12.pdf",
+      "rep": "Marta Noz",
+      "items": [
+        {
+          "item": "Aprovação do Regimento da AM para o mandato 2025-2029",
+          "proposedBy": "Mesa",
+          "pan": "favor",
+          "votes": { "Renascer":"favor","PS":"favor" },
+          "note": "Ponto único da sessão. Regimento resultante dos trabalhos da Comissão Eventual (incluía Marta Goed). Aprovado por unanimidade."
+        },
+        {
+          "item": "Aprovação da ata em minuta",
+          "proposedBy": "Mesa",
+          "pan": "favor",
+          "votes": { "Renascer":"favor","PS":"favor" }
+        }
+      ]
+    },
+    {
+      "session": 5, "date": "2026-02-20", "type": "Ordinária",
+      "local": "Paços do Município, Aljezur",
+      "source": "https://cms.cm-aljezur.pt//upload_files/client_id_2/website_id_1/Autarquia/Assembleia_Municipal/Atas_2026/ata_2026-02-20.pdf",
+      "rep": "Marta Noz",
+      "items": [
+        {
+          "item": "Aprovação das atas das sessões de 29/12/2025 e 12/01/2026",
+          "proposedBy": "Mesa",
+          "pan": "favor",
+          "votes": { "Renascer":"favor","PS":"favor" }
+        },
+        {
+          "item": "Informação do Presidente da CM — atividade e situação financeira",
+          "proposedBy": "CM",
+          "pan": "favor",
+          "note": "Apreciação sem votação. Debate sobre finanças municipais, taxas, e empréstimos."
+        },
+        {
+          "item": "Orçamento e Grandes Opções do Plano 2026",
+          "proposedBy": "CM",
+          "pan": "favor",
+          "votes": { "Renascer":"favor","PS":"abstention" },
+          "reason": "Orçamento de transição do novo executivo Renascer. PS abstém-se por considerar que não reflete mudança face ao mandato anterior, mas reconhece mérito em projetos já financiados. Marta Goed defendeu-o como orçamento de recuperação.",
+          "note": "Aprovado por maioria. Renascer votou a favor. PS (8 deputados) abstiveram-se com declaração de voto."
+        },
+        {
+          "item": "Mapa de Pessoal 2026",
+          "proposedBy": "CM",
+          "pan": "favor",
+          "votes": { "Renascer":"favor","PS":"favor" },
+          "reason": "Marta Goed questionou a falta de recursos humanos no Serviço Médico Veterinário (apenas 1 veterinária sem apoio), sugerindo afetação de pessoal de forma flexível.",
+          "note": "Aprovado por unanimidade após esclarecimentos do Presidente da CM."
+        },
+        {
+          "item": "Revisão ao Orçamento n.º 1",
+          "proposedBy": "CM",
+          "pan": "favor",
+          "votes": { "Renascer":"favor","PS":"favor" },
+          "note": "Aprovada por unanimidade."
+        },
+        {
+          "item": "Aprovação da ata em minuta",
+          "proposedBy": "Mesa",
+          "pan": "favor",
+          "votes": { "Renascer":"favor","PS":"favor" }
+        }
+      ]
+    }
+  ]
 }
