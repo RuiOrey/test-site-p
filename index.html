@@ -87,6 +87,7 @@ tr.clickable:hover .detail-icon { color: #2d6a4f; }
 .news-card .news-summary { font-size: .78rem; color: #64748b; margin-top: .25rem; line-height: 1.4; }
 .news-tags { display: flex; gap: .3rem; flex-wrap: wrap; margin-top: .35rem; }
 .news-tag { font-size: .68rem; padding: .15rem .5rem; border-radius: 4px; font-weight: 500; background: #e8f5e9; color: #2d6a4f; }
+.ex-note { font-size: .7rem; color: #b45309; margin-top: .2rem; grid-column: 1 / -1; }
 @media (max-width: 768px) { .charts-grid { grid-template-columns: 1fr; } .container { padding: 1rem; } .header h1 { font-size: 1.5rem; } }
 </style>
 </head>
@@ -356,12 +357,15 @@ function toggleItemDetail(uid) {
 function partyVotesHTML(votes) {
   const entries = Object.entries(votes).filter(([k]) => k !== 'IL');
   if (entries.length === 0) return '<span style="color:#94a3b8;font-size:.75rem">—</span>';
+  const partiesInVotes = Object.keys(votes);
+  const exNote = (currentData.meta.exPan || []).filter(ex => partiesInVotes.includes(ex.currentParty))
+    .map(ex => `<div class="ex-note">⚠️ ${ex.name} (ex-PAN, atualmente ${ex.currentParty})</div>`).join('');
   return '<div class="party-grid">' + entries.map(([party, vote]) => {
     const color = PARTIES[party] || '#666';
     const label = pn(party);
     const cls = vote === 'favor' ? 'badge-favor' : vote === 'against' ? 'badge-against' : vote === 'abstention' ? 'badge-abstention' : 'badge-novote';
     return `<span class="party-tag ${cls}" style="border-left:3px solid ${color}">${label}: ${vLabel(vote)}</span>`;
-  }).join('') + '</div>';
+  }).join('') + exNote + '</div>';
 }
 
 const vLabels = { favor: 'Fav', against: 'Con', abstention: 'Abs', mixed: 'Mist', '-': '—' };

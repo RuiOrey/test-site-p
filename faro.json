@@ -38,6 +38,10 @@
       "IL": { "seats": 1, "color": "#7c3aed" },
       "PAN": { "seats": 1, "color": "#2d6a4f" }
     },
+    "exPan": [
+      { "name": "Paulo Batista", "currentParty": "Independente", "role": "Ex-deputado municipal (desfiliou-se mar 2024)" },
+      { "name": "Elza Cunha", "currentParty": "Independente", "role": "Ex-deputada municipal (desfiliou-se mar 2024)" }
+    ],
     "news": [
       {
         "title": "Faro lança programa '4 Patas Solidárias' para apoiar famílias carenciadas com animais",
@@ -62,6 +66,14 @@
         "date": "2026-04-28",
         "summary": "Centro de Recolha de Animais de Faro (CROAF) realizou ação de fiscalização que resultou na recolha de seis cães no concelho.",
         "tags": ["animais", "Faro"]
+      },
+      {
+        "title": "Deputados do PAN em Faro abandonam partido e criticam direção nacional",
+        "url": "https://www.sulinformacao.pt/2024/03/deputados-do-pan-em-faro-abandonam-partido/",
+        "source": "Sul Informação",
+        "date": "2024-03",
+        "summary": "Paulo Batista e Elza Cunha, deputados municipais do PAN em Faro, desfiliaram-se do partido em março de 2024, criticando a deriva centralizadora da direção nacional. Ambos se tornaram independentes.",
+        "tags": ["PAN", "Paulo Batista", "Elza Cunha", "Faro"]
       }
     ]
   },
