@@ -2,17 +2,24 @@
   "meta": {
     "name": "Aljezur",
     "source": "https://cm-aljezur.pt/pt/menu/57/reunioes.aspx",
+    "url": "https://www.cm-aljezur.pt/pt/menu/76/assembleia-municipal.aspx",
     "panReps": [
-      { "name": "Marta Nogueira de Goed", "type": "independente", "list": "Renascer – Movimento Independente", "sessions": [1, 2, 3, 4, 5] }
+      {
+        "name": "Marta Nogueira de Goed",
+        "type": "independente",
+        "list": "Renascer – Movimento Independente",
+        "sessions": [1, 2, 3, 4, 5],
+        "bio": "PAN — Membro da Comissão Política Nacional do PAN (Lista A, n.º 24, eleita no X Congresso, Coimbra, 2025). Eleita para a Assembleia Municipal de Aljezur pelo movimento independente Renascer (Manuel Marreiros). O Renascer venceu a CM Aljezur em 2025 com 56,86% (9 lugares AM vs 6 PS), apoiado pelo PSD. Marta é simultaneamente militante/quadro do PAN e eleita por um movimento independente de direita — daí a classificação 'independente'."
+      }
     ],
     "composition": {
-      "Renascer": { "seats": 9, "color": "#0d9488", "note": "inclui PAN (Marta Noz)" },
+      "Renascer": { "seats": 9, "color": "#0d9488", "note": "inclui PAN (Marta Nogueira de Goed)" },
       "PS": { "seats": 6, "color": "#e53e3e" }
     }
   },
   "sessions": [
     {
-      "session": 1, "date": "2025-11-03", "rep": "Marta Noz", "type": "Instalação",
+      "session": 1, "date": "2025-11-03", "rep": "Marta Nogueira de Goed", "type": "Instalação",
       "local": "Espaço +, Aljezur",
       "source": "https://cms.cm-aljezur.pt//upload_files/client_id_2/website_id_1/Autarquia/Assembleia_Municipal/Atas_2025/ata_2025-11-03.pdf",
       "items": [
@@ -35,7 +42,7 @@
       "session": 2, "date": "2025-11-21", "type": "Extraordinária",
       "local": "Paços do Município, Aljezur",
       "source": "https://cms.cm-aljezur.pt//upload_files/client_id_2/website_id_1/Autarquia/Assembleia_Municipal/Atas_2025/ata_2025-11-21.pdf",
-      "rep": "Marta Noz",
+      "rep": "Marta Nogueira de Goed",
       "items": [
         {
           "item": "Aprovação da ata da sessão de 18/09/2025",
@@ -118,7 +125,7 @@
       "session": 3, "date": "2025-12-29", "type": "Ordinária",
       "local": "Paços do Município, Aljezur",
       "source": "https://cms.cm-aljezur.pt//upload_files/client_id_2/website_id_1/Autarquia/Assembleia_Municipal/Atas_2025/ata_2025-12-29.pdf",
-      "rep": "Marta Noz",
+      "rep": "Marta Nogueira de Goed",
       "items": [
         {
           "item": "Aprovação da ata da sessão anterior",
@@ -168,7 +175,7 @@
       "session": 4, "date": "2026-01-12", "type": "Extraordinária",
       "local": "Paços do Município, Aljezur",
       "source": "https://cms.cm-aljezur.pt//upload_files/client_id_2/website_id_1/Autarquia/Assembleia_Municipal/Atas_2026/ata_2026-01-12.pdf",
-      "rep": "Marta Noz",
+      "rep": "Marta Nogueira de Goed",
       "items": [
         {
           "item": "Aprovação do Regimento da AM para o mandato 2025-2029",
@@ -189,7 +196,7 @@
       "session": 5, "date": "2026-02-20", "type": "Ordinária",
       "local": "Paços do Município, Aljezur",
       "source": "https://cms.cm-aljezur.pt//upload_files/client_id_2/website_id_1/Autarquia/Assembleia_Municipal/Atas_2026/ata_2026-02-20.pdf",
-      "rep": "Marta Noz",
+      "rep": "Marta Nogueira de Goed",
       "items": [
         {
           "item": "Aprovação das atas das sessões de 29/12/2025 e 12/01/2026",

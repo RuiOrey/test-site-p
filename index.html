@@ -120,7 +120,7 @@ function renderAll(data) {
   chartInstances = [];
 
   const meta = data.meta;
-  document.getElementById('subtitle').textContent = `${meta.name} · Atualizado: Maio 2026`;
+  document.getElementById('subtitle').innerHTML = `${meta.name} · Atualizado: Maio 2026 ${meta.url ? `<a href="${meta.url}" target="_blank" style="color:#2d6a4f;text-decoration:none;font-size:.8rem" title="Site da Assembleia Municipal">🔗 AM</a>` : ''}`;
 
   const allSessions = data.sessions || [];
   const allItems = allSessions.flatMap(s => (s.items || []).filter(i => i.pan !== 'commemorative'));
@@ -146,7 +146,17 @@ function renderAll(data) {
         <h3>Sem dados de votação disponíveis</h3>
         <p>Os dados de votação para ${meta.name} ainda estão a ser compilados.<br>Volte mais tarde para consultar o registo de votações.</p>
       </div>
-      ${meta.panReps.length === 0 ? '<div class="placeholder-msg" style="padding:1rem"><p style="color:#64748b;font-size:.9rem">Este município não tem representação do PAN na Assembleia Municipal.</p></div>' : ''}
+      <div class="rep-bar" style="flex-direction:column;align-items:center;margin-bottom:1rem;gap:.3rem">
+        ${meta.panReps.map(r => {
+          const name = r.short || r.name;
+          let html = `<div>👤 ${name} ${repTypeBadge(r.type)}${r.list ? ' · ' + r.list : ''}`;
+          if (r.role) html += ` · <span style="font-size:.8rem;color:#64748b">${r.role}</span>`;
+          html += `</div>`;
+          if (r.bio) html += `<div style="font-size:.75rem;color:#64748b;max-width:500px;line-height:1.4">${r.bio}</div>`;
+          return html;
+        }).join('')}
+        ${meta.url ? `<div style="margin-top:.3rem"><a href="${meta.url}" target="_blank" style="font-size:.75rem;color:#2d6a4f">🔗 Site oficial da Assembleia Municipal</a></div>` : ''}
+      </div>
       ${comp ? `<div style="text-align:center;margin-top:1.5rem"><h3 style="font-size:.9rem;font-weight:600;color:#64748b;margin-bottom:.5rem">Composição da Assembleia</h3><div class="composition-grid">${comp}</div></div>` : ''}
     `;
     return;
@@ -164,8 +174,16 @@ function renderAll(data) {
       <div class="stat-card"><div class="label">Concordância</div><div class="value" style="color:#2d6a4f">${concordance}%</div></div>
     </div>
 
-    <div class="rep-bar" style="justify-content:center;margin-bottom:1.5rem">
-      ${meta.panReps.map(r => `👤 ${r.name} ${repTypeBadge(r.type)}${r.list ? ' · ' + r.list : ''}`).join(' &nbsp;|&nbsp; ')}
+    <div class="rep-bar" style="flex-direction:column;align-items:center;margin-bottom:1.5rem;gap:.3rem">
+      ${meta.panReps.map(r => {
+        const name = r.short || r.name;
+        let html = `<div>👤 ${name} ${repTypeBadge(r.type)}${r.list ? ' · ' + r.list : ''}`;
+        if (r.role) html += ` · <span style="font-size:.8rem;color:#64748b">${r.role}</span>`;
+        html += `</div>`;
+        if (r.bio) html += `<div style="font-size:.75rem;color:#64748b;max-width:500px;line-height:1.4">${r.bio}</div>`;
+        return html;
+      }).join('')}
+      ${meta.url ? `<div style="margin-top:.3rem"><a href="${meta.url}" target="_blank" style="font-size:.75rem;color:#2d6a4f">🔗 Site oficial da Assembleia Municipal</a></div>` : ''}
     </div>
 
     <div class="charts-grid">
