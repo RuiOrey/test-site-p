@@ -8,10 +8,29 @@
       {
         "name": "Saúl Rosa",
         "type": "coligação",
-        "role": "Vereador (Câmara Municipal, regime de substituição)",
-        "bio": "PAN — Atualmente Vereador na Câmara Municipal de VRSA (regime de substituição, desde 5 mar 2026), via acordo PAN/PS. Militante do PAN desde 2019. Comissário Político Distrital de Faro (2020–2025). Criou a Comissão Política Concelhia do PAN em VRSA. Foi cabeça de lista do PAN nas legislativas de 2024 pelo círculo de Faro. Membro da Comissão Política Nacional do PAN (Lista A, n.º 6, eleito X Congresso 2025). Presidente da Comissão Política Distrital de Faro (eleito 2025). Em 2021 foi o primeiro candidato do PAN à CM VRSA. Natural de VRSA, 34 anos, instrumentista de orquestra, CEO no setor hoteleiro.",
+        "role": "Vereador PAN na Câmara Municipal (desde 5 mar 2026)",
+        "bio": "PAN — Atualmente Vereador na Câmara Municipal de VRSA (regime de substituição, desde 5 mar 2026), via acordo PAN/PS. Primeiro membro do PAN num executivo municipal em Portugal. Militante do PAN desde 2019. Comissário Político Distrital de Faro (2020–2025). Criou a Comissão Política Concelhia do PAN em VRSA. Foi cabeça de lista do PAN nas legislativas de 2024 pelo círculo de Faro. Membro da Comissão Política Nacional do PAN (Lista A, n.º 6, eleito X Congresso 2025). Presidente da Comissão Política Distrital de Faro (eleito 2025). Em 2021 foi o primeiro candidato do PAN à CM VRSA. Natural de VRSA, 34 anos, instrumentista de orquestra, CEO no setor hoteleiro.",
         "note": "Acordo pré-eleitoral PAN/PS (Álvaro Araújo). Primeiro membro do PAN num executivo municipal em Portugal. Participou na sessão extraordinária da CM de 5 de março de 2026.",
-        "sessions": []
+        "sessions": [],
+        "politicalJourney": [
+          { "party": "PAN", "period": "mar 2026–presente", "role": "Vereador na CM VRSA (acordo PAN/PS)" },
+          { "party": "PAN", "period": "2025–presente", "role": "Presidente da Comissão Política Distrital de Faro" },
+          { "party": "PAN", "period": "2025", "role": "Membro da Comissão Política Nacional (X Congresso, Lista A n.º 6)" },
+          { "party": "PAN", "period": "2024", "role": "Cabeça de lista às legislativas (círculo de Faro)" },
+          { "party": "PAN", "period": "2021", "role": "Primeiro candidato do PAN à CM VRSA" },
+          { "party": "PAN", "period": "2019", "role": "Militante" }
+        ]
+      },
+      {
+        "name": "Damyana Stoykova Kazakova",
+        "type": "outro",
+        "role": "Deputada Municipal (PS, 20.º/21.º mandato)",
+        "bio": "PS (ex-PAN) — Atualmente Deputada Municipal na AM VRSA pelo Partido Socialista. Foi militante e ativista do PAN: subscritora de proposta de criação de juventude partidária no congresso do PAN de 2023 (Público, 20 mai 2023) e representante do PAN em debate sobre voto jovem na ESGHT/UAlg (nov 2023). Atualmente exerce como PS. Não há registo de votações nominais na AM VRSA para documentar a sua atividade.",
+        "sessions": [],
+        "politicalJourney": [
+          { "party": "PAN", "period": "até 2024/2025", "role": "Militante e ativista — subscritora de proposta de juventude partidária (congresso PAN 2023), representante do PAN em debate ESGHT/UAlg (2023)" },
+          { "party": "PS", "period": "2025–presente", "role": "Deputada Municipal na AM VRSA (20.º/21.º mandato)" }
+        ]
       }
     ],
     "composition": {

@@ -10,7 +10,11 @@
         "type": "independente",
         "list": "Renascer – Movimento Independente",
         "sessions": [1, 2, 3, 4, 5],
-        "bio": "PAN — Atualmente Deputada Municipal na Assembleia Municipal de Aljezur (eleita pelo movimento independente Renascer). Membro da Comissão Política Nacional do PAN (Lista A, n.º 24, eleita no X Congresso, Coimbra, 2025). O Renascer (Manuel Marreiros) venceu a CM Aljezur em 2025 com 56,86% (9 lugares AM vs 6 PS), apoiado pelo PSD. Marta é simultaneamente militante/quadro do PAN e eleita por um movimento independente — daí a classificação 'independente'."
+        "bio": "PAN — Atualmente Deputada Municipal na Assembleia Municipal de Aljezur (eleita pelo movimento independente Renascer). Membro da Comissão Política Nacional do PAN (Lista A, n.º 24, eleita no X Congresso, Coimbra, 2025). O Renascer (Manuel Marreiros) venceu a CM Aljezur em 2025 com 56,86% (9 lugares AM vs 6 PS), apoiado pelo PSD. Marta é simultaneamente militante/quadro do PAN e eleita por um movimento independente — daí a classificação 'independente'.",
+        "politicalJourney": [
+          { "party": "PAN", "period": "presente", "role": "Deputada Municipal na AM Aljezur (eleita pelo movimento independente Renascer)" },
+          { "party": "PAN", "period": "2025", "role": "Membro da Comissão Política Nacional (X Congresso, Lista A n.º 24)" }
+        ]
       }
     ],
     "composition": {

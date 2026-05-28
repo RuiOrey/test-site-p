@@ -84,7 +84,7 @@ tr.clickable:hover .detail-icon { color: #2d6a4f; }
       <option value="vrsa">Vila Real de Santo António</option>
     </select>
   </div>
-  <div class="subtitle" id="subtitle">Faro · Atualizado: Maio 2026</div>
+  <div class="subtitle" id="subtitle"></div>
 </div>
 <div class="container">
   <div id="app"></div>
@@ -146,15 +146,8 @@ function renderAll(data) {
         <h3>Sem dados de votação disponíveis</h3>
         <p>Os dados de votação para ${meta.name} ainda estão a ser compilados.<br>Volte mais tarde para consultar o registo de votações.</p>
       </div>
-      <div class="rep-bar" style="flex-direction:column;align-items:center;margin-bottom:1rem;gap:.3rem">
-        ${meta.panReps.map(r => {
-          const name = r.short || r.name;
-          let html = `<div>👤 ${name} ${repTypeBadge(r.type)}${r.list ? ' · ' + r.list : ''}`;
-          if (r.role) html += ` · <span style="font-size:.8rem;color:#64748b">${r.role}</span>`;
-          html += `</div>`;
-          if (r.bio) html += `<div style="font-size:.75rem;color:#64748b;max-width:500px;line-height:1.4">${r.bio}</div>`;
-          return html;
-        }).join('')}
+      <div class="rep-bar" style="flex-direction:column;align-items:center;margin-bottom:1rem">
+        ${meta.panReps.map(r => renderRepCard(r)).join('')}
         ${meta.url ? `<div style="margin-top:.3rem"><a href="${meta.url}" target="_blank" style="font-size:.75rem;color:#2d6a4f">🔗 Site oficial da Assembleia Municipal</a></div>` : ''}
       </div>
       ${comp ? `<div style="text-align:center;margin-top:1.5rem"><h3 style="font-size:.9rem;font-weight:600;color:#64748b;margin-bottom:.5rem">Composição da Assembleia</h3><div class="composition-grid">${comp}</div></div>` : ''}
@@ -174,15 +167,8 @@ function renderAll(data) {
       <div class="stat-card"><div class="label">Concordância</div><div class="value" style="color:#2d6a4f">${concordance}%</div></div>
     </div>
 
-    <div class="rep-bar" style="flex-direction:column;align-items:center;margin-bottom:1.5rem;gap:.3rem">
-      ${meta.panReps.map(r => {
-        const name = r.short || r.name;
-        let html = `<div>👤 ${name} ${repTypeBadge(r.type)}${r.list ? ' · ' + r.list : ''}`;
-        if (r.role) html += ` · <span style="font-size:.8rem;color:#64748b">${r.role}</span>`;
-        html += `</div>`;
-        if (r.bio) html += `<div style="font-size:.75rem;color:#64748b;max-width:500px;line-height:1.4">${r.bio}</div>`;
-        return html;
-      }).join('')}
+    <div class="rep-bar" style="flex-direction:column;align-items:center;margin-bottom:1.5rem">
+      ${meta.panReps.map(r => renderRepCard(r)).join('')}
       ${meta.url ? `<div style="margin-top:.3rem"><a href="${meta.url}" target="_blank" style="font-size:.75rem;color:#2d6a4f">🔗 Site oficial da Assembleia Municipal</a></div>` : ''}
     </div>
 
@@ -224,7 +210,40 @@ function findRep(data, sessionNum) {
   return data.meta.panReps.find(r => r.sessions.includes(sessionNum));
 }
 
-const REP_TYPE_LABELS = { directa: 'PAN', independente: 'Independente' };
+function hasTransition(journey) {
+  if (!journey || journey.length < 2) return false;
+  const parties = journey.map(j => j.party);
+  return new Set(parties).size > 1;
+}
+
+function renderRepCard(r) {
+  const name = r.short || r.name;
+  let html = `<div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:.6rem 1rem;margin-bottom:.5rem;width:100%;max-width:600px">`;
+  html += `<div style="display:flex;align-items:center;gap:.4rem;flex-wrap:wrap">👤 <strong>${name}</strong> ${repTypeBadge(r.type)}`;
+  if (r.list) html += `<span style="font-size:.75rem;color:#64748b">· ${r.list}</span>`;
+  if (r.role) html += `<span style="font-size:.75rem;color:#64748b">· ${r.role}</span>`;
+  if (hasTransition(r.politicalJourney)) {
+    html += `<span class="badge badge-against" style="font-size:.65rem">🔄 Transição partidária</span>`;
+  }
+  html += `</div>`;
+  if (r.bio) html += `<div style="font-size:.75rem;color:#475569;max-width:100%;line-height:1.4;margin-top:.3rem">${r.bio}</div>`;
+  if (r.politicalJourney && r.politicalJourney.length > 0) {
+    html += `<div style="margin-top:.4rem;font-size:.75rem"><strong style="color:#334155">Percurso Político:</strong>`;
+    html += r.politicalJourney.map(j => {
+      const partyColor = PARTIES[j.party] || '#64748b';
+      return `<div style="display:flex;align-items:baseline;gap:.4rem;padding:1px 0">
+        <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${partyColor};flex-shrink:0"></span>
+        <span style="color:#64748b;min-width:100px">${j.period}</span>
+        <span><strong>${j.party}</strong> — ${j.role}</span>
+      </div>`;
+    }).join('');
+    html += `</div>`;
+  }
+  html += `</div>`;
+  return html;
+}
+
+const REP_TYPE_LABELS = { directa: 'PAN', independente: 'Independente', coligação: 'Coligação', outro: 'Outro' };
 function repTypeBadge(type) {
   const label = REP_TYPE_LABELS[type] || type;
   const cls = type === 'directa' ? 'badge-favor' : 'badge-abstention';
@@ -401,7 +420,7 @@ function setupCharts(allItems) {
   }));
 }
 
-switchMunicipality('faro');
+switchMunicipality(document.getElementById('muniSelect').value);
 </script>
 </body>
 </html>
