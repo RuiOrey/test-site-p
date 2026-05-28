@@ -68,6 +68,7 @@ tr.clickable:hover .detail-icon { color: #2d6a4f; }
 .muni-tab.active { background: rgba(255,255,255,.95); color: #1a1a2e; border-color: transparent; }
 .animal-card { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: .6rem 1rem; margin-bottom: 1rem; font-size: .82rem; color: #166534; line-height: 1.5; }
 .animal-card strong { color: #14532d; }
+.rep-bar { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: .5rem; }
 .placeholder-msg { text-align: center; padding: 3rem 1rem; color: #94a3b8; }
 .placeholder-msg h3 { font-size: 1.2rem; margin-bottom: .5rem; color: #64748b; }
 .placeholder-msg p { font-size: .9rem; }
@@ -157,13 +158,10 @@ function renderAll(data) {
         <h3>Sem dados de votação disponíveis</h3>
         <p>Os dados de votação para ${meta.name} ainda estão a ser compilados.<br>Volte mais tarde para consultar o registo de votações.</p>
       </div>
-      <div class="rep-bar" style="flex-direction:column;align-items:center;margin-bottom:1rem">
-        ${meta.panReps.map(r => renderRepCard(r)).join('')}
-        ${meta.url ? `<div style="margin-top:.3rem"><a href="${meta.url}" target="_blank" style="font-size:.75rem;color:#2d6a4f">🔗 Site oficial da Assembleia Municipal</a></div>` : ''}
-      </div>
-      ${renderAnimalMeasures(meta)}
-      ${renderNews(meta.news)}
-      ${comp ? `<div style="text-align:center;margin-top:1.5rem"><h3 style="font-size:.9rem;font-weight:600;color:#64748b;margin-bottom:.5rem">Composição da Assembleia</h3><div class="composition-grid">${comp}</div></div>` : ''}
+<div class="rep-bar" style="margin-bottom:1rem">
+      ${meta.panReps.map(r => renderRepCard(r)).join('')}
+      ${meta.url ? `<div style="margin-top:.3rem"><a href="${meta.url}" target="_blank" style="font-size:.75rem;color:#2d6a4f;grid-column:1/-1">🔗 Site oficial da Assembleia Municipal</a></div>` : ''}
+    </div>
     `;
     return;
   }
@@ -180,9 +178,9 @@ function renderAll(data) {
       <div class="stat-card"><div class="label">Concordância</div><div class="value" style="color:#2d6a4f">${concordance}%</div></div>
     </div>
 
-    <div class="rep-bar" style="flex-direction:column;align-items:center;margin-bottom:1.5rem">
+    <div class="rep-bar" style="margin-bottom:1.5rem">
       ${meta.panReps.map(r => renderRepCard(r)).join('')}
-      ${meta.url ? `<div style="margin-top:.3rem"><a href="${meta.url}" target="_blank" style="font-size:.75rem;color:#2d6a4f">🔗 Site oficial da Assembleia Municipal</a></div>` : ''}
+      ${meta.url ? `<div style="margin-top:.3rem"><a href="${meta.url}" target="_blank" style="font-size:.75rem;color:#2d6a4f;grid-column:1/-1">🔗 Site oficial da Assembleia Municipal</a></div>` : ''}
     </div>
 
     ${renderAnimalMeasures(meta)}
@@ -234,7 +232,7 @@ function hasTransition(journey) {
 
 function renderRepCard(r) {
   const name = r.short || r.name;
-  let html = `<div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:.6rem 1rem;margin-bottom:.5rem;width:100%;max-width:600px">`;
+  let html = `<div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:.6rem 1rem;margin-bottom:.5rem;width:100%">`;
   html += `<div style="display:flex;align-items:center;gap:.4rem;flex-wrap:wrap">👤 <strong>${name}</strong> ${repTypeBadge(r.type)}`;
   if (r.list) html += `<span style="font-size:.75rem;color:#64748b">· ${r.list}</span>`;
   if (r.role) html += `<span style="font-size:.75rem;color:#64748b">· ${r.role}</span>`;
