@@ -62,9 +62,12 @@ tr.clickable:hover .detail-icon { color: #2d6a4f; }
 .chart-card canvas { max-height: 260px; max-width: 100%; }
 .party-grid { display: flex; flex-wrap: wrap; gap: .3rem; }
 .party-tag { font-size: .68rem; padding: .1rem .45rem; border-radius: 4px; font-weight: 600; white-space: nowrap; }
-.muni-selector { margin-top: 1rem; }
-.muni-selector select { padding: .5rem 1rem; border: 1px solid rgba(255,255,255,.3); border-radius: 8px; font-family: inherit; font-size: .9rem; background: rgba(255,255,255,.15); color: white; font-weight: 500; cursor: pointer; outline: none; }
-.muni-selector select option { color: #1a1a2e; background: white; }
+.muni-selector { margin-top: 1rem; display: flex; gap: .4rem; flex-wrap: wrap; justify-content: center; }
+.muni-tab { padding: .5rem 1.2rem; border: 1px solid rgba(255,255,255,.3); border-radius: 8px; font-family: inherit; font-size: .85rem; background: rgba(255,255,255,.1); color: rgba(255,255,255,.7); font-weight: 500; cursor: pointer; transition: all .15s; outline: none; }
+.muni-tab:hover { background: rgba(255,255,255,.2); color: white; }
+.muni-tab.active { background: rgba(255,255,255,.95); color: #1a1a2e; border-color: transparent; }
+.animal-card { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: .6rem 1rem; margin-bottom: 1rem; font-size: .82rem; color: #166534; line-height: 1.5; }
+.animal-card strong { color: #14532d; }
 .placeholder-msg { text-align: center; padding: 3rem 1rem; color: #94a3b8; }
 .placeholder-msg h3 { font-size: 1.2rem; margin-bottom: .5rem; color: #64748b; }
 .placeholder-msg p { font-size: .9rem; }
@@ -77,12 +80,10 @@ tr.clickable:hover .detail-icon { color: #2d6a4f; }
 <div class="header">
   <h1>Dados Municipais</h1>
   <p>Acompanhamento de atividade parlamentar autárquica</p>
-  <div class="muni-selector">
-    <select id="muniSelect" onchange="switchMunicipality(this.value)">
-      <option value="faro">Faro</option>
-      <option value="aljezur">Aljezur</option>
-      <option value="vrsa">Vila Real de Santo António</option>
-    </select>
+   <div class="muni-selector">
+    <button class="muni-tab active" data-muni="faro" onclick="switchMunicipality('faro')">Faro</button>
+    <button class="muni-tab" data-muni="aljezur" onclick="switchMunicipality('aljezur')">Aljezur</button>
+    <button class="muni-tab" data-muni="vrsa" onclick="switchMunicipality('vrsa')">Vila Real de Sto. António</button>
   </div>
   <div class="subtitle" id="subtitle"></div>
 </div>
@@ -104,6 +105,7 @@ let currentData = null;
 let chartInstances = [];
 
 async function switchMunicipality(id) {
+  document.querySelectorAll('.muni-tab').forEach(b => b.classList.toggle('active', b.dataset.muni === id));
   try {
     const resp = await fetch(MUNICIPALITIES[id]);
     if (!resp.ok) throw new Error('Failed to load');
@@ -150,6 +152,7 @@ function renderAll(data) {
         ${meta.panReps.map(r => renderRepCard(r)).join('')}
         ${meta.url ? `<div style="margin-top:.3rem"><a href="${meta.url}" target="_blank" style="font-size:.75rem;color:#2d6a4f">🔗 Site oficial da Assembleia Municipal</a></div>` : ''}
       </div>
+      ${renderAnimalMeasures(meta)}
       ${comp ? `<div style="text-align:center;margin-top:1.5rem"><h3 style="font-size:.9rem;font-weight:600;color:#64748b;margin-bottom:.5rem">Composição da Assembleia</h3><div class="composition-grid">${comp}</div></div>` : ''}
     `;
     return;
@@ -171,6 +174,8 @@ function renderAll(data) {
       ${meta.panReps.map(r => renderRepCard(r)).join('')}
       ${meta.url ? `<div style="margin-top:.3rem"><a href="${meta.url}" target="_blank" style="font-size:.75rem;color:#2d6a4f">🔗 Site oficial da Assembleia Municipal</a></div>` : ''}
     </div>
+
+    ${renderAnimalMeasures(meta)}
 
     <div class="charts-grid">
       <div class="chart-card"><h3>Votações PAN</h3><canvas id="chartPie"></canvas></div>
@@ -241,6 +246,11 @@ function renderRepCard(r) {
   }
   html += `</div>`;
   return html;
+}
+
+function renderAnimalMeasures(meta) {
+  if (!meta.animalMeasures) return '';
+  return `<div class="animal-card"><strong>🐾 Medidas Animais:</strong> ${meta.animalMeasures}</div>`;
 }
 
 const REP_TYPE_LABELS = { directa: 'PAN', independente: 'Independente', coligação: 'Coligação', outro: 'Outro' };
@@ -423,7 +433,7 @@ function setupCharts(allItems) {
   }
 }
 
-switchMunicipality(document.getElementById('muniSelect').value);
+switchMunicipality('faro');
 </script>
 </body>
 </html>
