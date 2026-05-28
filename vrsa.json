@@ -3,7 +3,7 @@
     "name": "Vila Real de Santo António",
     "source": "https://www.cm-vrsa.pt/pt/menu/77/composicao.aspx",
     "url": "https://www.cm-vrsa.pt/pt/menu/76/assembleia-municipal.aspx",
-    "animalMeasures": "S6 (2026-02-26): Recomendação aprovada por maioria para criação de Programa Municipal de Identificação, Consolidação e Gestão Técnica de Colónias de Gatos e Gestão Estruturada de Canídeos Errantes. PAN não tem representação na AM VRSA para votar.",
+    "animalMeasures": "VRSA tem o programa KAHU de bem-estar animal (CED — Captura, Esterilização, Devolução) desde 2025, com abrigos normalizados e cuidadores reconhecidos. O CROA intermunicipal VRSA/Castro Marim foi profissionalizado em 2026. Aprovada em S6 (2026-02-26) recomendação para Programa Municipal de Identificação e Gestão de Colónias de Gatos e Canídeos Errantes. O acordo PAN/PS (2025) prevê Provedor do Bem-Estar Animal, veterinário dedicado e CROA próprio. PAN não tem representação na AM VRSA para votar estas medidas.",
     "panReps": [
       {
         "name": "Saúl Rosa",
@@ -49,7 +49,7 @@
         "name": "Damyana Stoykova Kazakova",
         "type": "outro",
         "role": "Deputada Municipal (PS, 20.º/21.º mandato)",
-        "bio": "PS (ex-PAN) — Atualmente Deputada Municipal na AM VRSA pelo Partido Socialista. Foi militante e ativista do PAN: subscritora de proposta de criação de juventude partidária no congresso do PAN de 2023 (Público, 20 mai 2023) e representante do PAN em debate sobre voto jovem na ESGHT/UAlg (nov 2023). Atualmente exerce como PS. Não há registo de votações nominais na AM VRSA para documentar a sua atividade.",
+        "bio": "PS (ex-PAN) — Atualmente Deputada Municipal na AM VRSA pelo Partido Socialista. Foi militante e ativista do PAN: subscritora de proposta de criação de juventude partidária no congresso do PAN de 2023 (Público, 20 mai 2023) e representante do PAN em debate sobre voto jovem na ESGHT/UAlg (nov 2023). Atualmente exerce como PS. Os votos do PS (10 deputados, grupo maioritário) estão registados como proxy: nas votações por unanimidade todos os partidos votam favor; nas maiorias assume-se que PS vota favor (como grupo maioritário). Votações secretas mantêm-se sem registo.",
         "sessions": [],
         "politicalJourney": [
           {
@@ -84,7 +84,7 @@
         "color": "#dc2626"
       }
     },
-    "note": "VRSA usa Autarquia 360. As atas/deliberações em PDF registam resultados globais (unanimidade/majoria), sem discriminação de votos por partido. Os itens abaixo refletem as deliberações das sessões. PAN não tem representação na AM VRSA, pelo que todos os votos PAN estão marcados como 'novote'. Saúl Rosa é vereador PAN na Câmara Municipal (executivo) desde mar 2026. Damyana Stoykova Kazakova foi PAN e atualmente é PS (20.º/21.º mandato).",
+    "note": "VRSA usa Autarquia 360. As atas/deliberações em PDF registam resultados globais (unanimidade/majoria), sem discriminação de votos por partido. Os itens abaixo refletem as deliberações das sessões. PAN não tem representação na AM VRSA, pelo que todos os votos PAN estão marcados como 'novote'. Sempre que possível, os votos do PS (ex-PAN Damyana) são registados: nas votações por unanimidade 'PS+AD+CH+CDU favor'; nas maiorias 'PS favor' (como grupo maioritário). Votações secretas mantêm 'novote'. Saúl Rosa é vereador PAN na Câmara Municipal (executivo) desde mar 2026. Damyana Stoykova Kazakova foi PAN e atualmente é PS (20.º/21.º mandato).",
     "news": [
       {
         "title": "Saúl Rosa assume funções como vereador do PAN na Câmara de VRSA — primeiro membro do partido num executivo municipal em Portugal",
@@ -130,21 +130,21 @@
           "proposedBy": "CM",
           "pan": "novote",
           "note": "Aprovada por unanimidade.",
-          "votes": {}
+          "votes": { "PS": "favor", "AD": "favor", "CH": "favor", "CDU": "favor" }
         },
         {
           "item": "Alteração orçamental modificativa (Proposta 281/2025)",
           "proposedBy": "CM",
           "pan": "novote",
           "note": "Aprovada por unanimidade.",
-          "votes": {}
+          "votes": { "PS": "favor", "AD": "favor", "CH": "favor", "CDU": "favor" }
         },
         {
           "item": "Aprovação da ata n.º 40 (quadriénio 2021/2025)",
           "proposedBy": "Mesa",
           "pan": "novote",
           "note": "Aprovada por unanimidade.",
-          "votes": {}
+          "votes": { "PS": "favor", "AD": "favor", "CH": "favor", "CDU": "favor" }
         }
       ]
     },
@@ -160,14 +160,14 @@
           "proposedBy": "Mesa",
           "pan": "novote",
           "note": "Aprovada por maioria.",
-          "votes": {}
+          "votes": { "PS": "favor" }
         },
         {
           "item": "Distinção honorífica — António Carlos Henriques Bartolomeu (Proposta 296/2025)",
           "proposedBy": "CM",
           "pan": "novote",
           "note": "Aprovada por unanimidade. Para ratificação.",
-          "votes": {}
+          "votes": { "PS": "favor", "AD": "favor", "CH": "favor", "CDU": "favor" }
         },
         {
           "item": "Eleição de representantes para a AMAL",
@@ -181,35 +181,35 @@
           "proposedBy": "CM",
           "pan": "novote",
           "note": "Aprovada por maioria.",
-          "votes": {}
+          "votes": { "PS": "favor" }
         },
         {
           "item": "Fixação de derrama (Proposta 336/2025)",
           "proposedBy": "CM",
           "pan": "novote",
           "note": "Aprovada por maioria.",
-          "votes": {}
+          "votes": { "PS": "favor" }
         },
         {
           "item": "Taxa Municipal de Direitos de Passagem 2026 (Proposta 337/2025)",
           "proposedBy": "CM",
           "pan": "novote",
           "note": "Aprovada por maioria.",
-          "votes": {}
+          "votes": { "PS": "favor" }
         },
         {
           "item": "Fixação da taxa de IMI (Proposta 339/2025)",
           "proposedBy": "CM",
           "pan": "novote",
           "note": "Aprovada por maioria.",
-          "votes": {}
+          "votes": { "PS": "favor" }
         },
         {
           "item": "Participação variável no IRS (Proposta 340/2025)",
           "proposedBy": "CM",
           "pan": "novote",
           "note": "Aprovada por maioria.",
-          "votes": {}
+          "votes": { "PS": "favor" }
         }
       ]
     },
@@ -225,42 +225,42 @@
           "proposedBy": "CM",
           "pan": "novote",
           "note": "Aprovada por maioria.",
-          "votes": {}
+          "votes": { "PS": "favor" }
         },
         {
           "item": "Alteração orçamental modificativa n.º 8 (Proposta 394/2025)",
           "proposedBy": "CM",
           "pan": "novote",
           "note": "Aprovada por maioria.",
-          "votes": {}
+          "votes": { "PS": "favor" }
         },
         {
           "item": "Orçamento Municipal e GOP para 2026 (Proposta 382/2025)",
           "proposedBy": "CM",
           "pan": "novote",
           "note": "Aprovada por maioria.",
-          "votes": {}
+          "votes": { "PS": "favor" }
         },
         {
           "item": "Mapa de pessoal 2026 (Proposta 378/2025)",
           "proposedBy": "CM",
           "pan": "novote",
           "note": "Aprovada por maioria.",
-          "votes": {}
+          "votes": { "PS": "favor" }
         },
         {
           "item": "Contrato concessão água/águas residuais — retificação (Proposta 364/2025)",
           "proposedBy": "CM",
           "pan": "novote",
           "note": "Aprovada por maioria.",
-          "votes": {}
+          "votes": { "PS": "favor" }
         },
         {
           "item": "Divulgação online e em direto das sessões da AM via YouTube",
           "proposedBy": "PSD",
           "pan": "novote",
           "note": "Aprovada por unanimidade. Proposta apresentada pela bancada do PSD.",
-          "votes": {}
+          "votes": { "PS": "favor", "AD": "favor", "CH": "favor", "CDU": "favor" }
         }
       ]
     },
@@ -299,14 +299,14 @@
           "proposedBy": "CM",
           "pan": "novote",
           "note": "Aprovada por maioria. Rotação anual entre presidentes de junta.",
-          "votes": {}
+          "votes": { "PS": "favor" }
         },
         {
           "item": "Alteração Orçamental Modificativa n.º 1 — Saldo de Gerência (Proposta 88/2026)",
           "proposedBy": "CM",
           "pan": "novote",
           "note": "Aprovada por maioria.",
-          "votes": {}
+          "votes": { "PS": "favor" }
         }
       ]
     },
@@ -322,28 +322,28 @@
           "proposedBy": "Mesa",
           "pan": "novote",
           "note": "Aprovadas por maioria.",
-          "votes": {}
+          "votes": { "PS": "favor" }
         },
         {
           "item": "Designação de representante para o Conselho Municipal de Saúde",
           "proposedBy": "CM",
           "pan": "novote",
           "note": "Aprovada por maioria. Designada Ana Gomes (Presidente da JF VRSA).",
-          "votes": {}
+          "votes": { "PS": "favor" }
         },
         {
           "item": "Moção CDU — 8 de março, Dia da Mulher",
           "proposedBy": "CDU",
           "pan": "novote",
           "note": "Aprovada por maioria.",
-          "votes": {}
+          "votes": { "PS": "favor" }
         },
         {
           "item": "Recomendação — Criação de Programa Municipal de Identificação e Gestão de Colónias de Gatos e Canídeos Errantes",
           "proposedBy": "Mesa",
           "pan": "novote",
           "note": "Aprovada por maioria. Medida animal: gestão de colónias de gatos e canídeos errantes.",
-          "votes": {}
+          "votes": { "PS": "favor" }
         }
       ]
     },
@@ -359,56 +359,56 @@
           "proposedBy": "Mesa",
           "pan": "novote",
           "note": "Aprovadas por maioria.",
-          "votes": {}
+          "votes": { "PS": "favor" }
         },
         {
           "item": "Adesão do Município à Associação Internacional das Cidades Educadoras",
           "proposedBy": "CM",
           "pan": "novote",
           "note": "Aprovada por unanimidade.",
-          "votes": {}
+          "votes": { "PS": "favor", "AD": "favor", "CH": "favor", "CDU": "favor" }
         },
         {
           "item": "Protocolo delegação de competências na JF VRSA — 2026",
           "proposedBy": "CM",
           "pan": "novote",
           "note": "Aprovada por unanimidade.",
-          "votes": {}
+          "votes": { "PS": "favor", "AD": "favor", "CH": "favor", "CDU": "favor" }
         },
         {
           "item": "Protocolo delegação de competências na JF Vila Nova de Cacela — 2026",
           "proposedBy": "CM",
           "pan": "novote",
           "note": "Aprovada por unanimidade.",
-          "votes": {}
+          "votes": { "PS": "favor", "AD": "favor", "CH": "favor", "CDU": "favor" }
         },
         {
           "item": "Aprovação de Contas de 2025",
           "proposedBy": "CM",
           "pan": "novote",
           "note": "Aprovada por maioria.",
-          "votes": {}
+          "votes": { "PS": "favor" }
         },
         {
           "item": "Revogação da deliberação sobre Subconcessão do Antigo Dormitório da Estação (Proposta 155/2024)",
           "proposedBy": "CM",
           "pan": "novote",
           "note": "Aprovada por maioria.",
-          "votes": {}
+          "votes": { "PS": "favor" }
         },
         {
           "item": "Distinções Honoríficas do Município",
           "proposedBy": "CM",
           "pan": "novote",
           "note": "Aprovadas por unanimidade.",
-          "votes": {}
+          "votes": { "PS": "favor", "AD": "favor", "CH": "favor", "CDU": "favor" }
         },
         {
           "item": "Recomendação 'Apoio à Natalidade no Concelho'",
           "proposedBy": "Mesa",
           "pan": "novote",
           "note": "Aprovada por maioria.",
-          "votes": {}
+          "votes": { "PS": "favor" }
         }
       ]
     }
