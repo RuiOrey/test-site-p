@@ -37,7 +37,30 @@
       "LIVRE": { "seats": 1, "color": "#d97706" },
       "IL": { "seats": 1, "color": "#7c3aed" },
       "PAN": { "seats": 1, "color": "#2d6a4f" }
-    }
+    },
+    "news": [
+      {
+        "title": "Faro lança programa '4 Patas Solidárias' para apoiar famílias carenciadas com animais",
+        "url": "https://www.cm-faro.pt/pt/noticias/80864/municipio-de-faro-lanca-programa-4-patas-solidarias-para-apoiar-familias-carenciadas-com-animais.aspx",
+        "source": "CM Faro",
+        "date": "2025-08-29",
+        "summary": "Programa pioneiro 'Faro Integra – 4 patas solidárias' oferece alimento, microchip e desparasitação a famílias carenciadas com cães ou gatos no concelho."
+      },
+      {
+        "title": "PAN lança plataforma PANDADOS para monitorizar bem-estar animal nos municípios",
+        "url": "https://observador.pt/2026/04/06/pan-lanca-plataforma-para-mapear-desigualdades-territoriais-no-bem-estar-animal/",
+        "source": "Observador",
+        "date": "2026-04-06",
+        "summary": "Ferramenta online reúne dados oficiais sobre CROA, adoções, esterilizações e permite comparar a resposta dos municípios na causa animal."
+      },
+      {
+        "title": "Ação de fiscalização termina com seis cães recolhidos em Faro",
+        "url": "https://www.algarvemarafado.com/2026/04/28/acao-de-fiscalizacao-termina-com-seis-caes-recolhidos/",
+        "source": "Algarve Marafado",
+        "date": "2026-04-28",
+        "summary": "Centro de Recolha de Animais de Faro (CROAF) realizou ação de fiscalização que resultou na recolha de seis cães no concelho."
+      }
+    ]
   },
   "sessions": [
     {

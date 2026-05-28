@@ -73,6 +73,15 @@ tr.clickable:hover .detail-icon { color: #2d6a4f; }
 .placeholder-msg p { font-size: .9rem; }
 .composition-grid { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.5rem; justify-content: center; }
 .composition-item { font-size: .75rem; padding: .3rem .7rem; border-radius: 6px; font-weight: 600; color: white; }
+.rep-bar .rep-link { grid-column: 1 / -1; font-size: .75rem; color: #2d6a4f; text-decoration: none; text-align: center; }
+.rep-bar .rep-link:hover { text-decoration: underline; }
+.news-section { margin-bottom: 1.5rem; }
+.news-card { background: white; border-radius: 8px; padding: .75rem 1rem; margin-bottom: .5rem; border: 1px solid #e2e8f0; transition: border-color .15s; }
+.news-card:hover { border-color: #2d6a4f; }
+.news-card .news-title { font-weight: 600; font-size: .85rem; color: #1a1a2e; text-decoration: none; }
+.news-card .news-title:hover { color: #2d6a4f; }
+.news-card .news-meta { font-size: .72rem; color: #94a3b8; margin-top: .15rem; }
+.news-card .news-summary { font-size: .78rem; color: #64748b; margin-top: .25rem; line-height: 1.4; }
 @media (max-width: 768px) { .charts-grid { grid-template-columns: 1fr; } .container { padding: 1rem; } .header h1 { font-size: 1.5rem; } }
 </style>
 </head>
@@ -153,6 +162,7 @@ function renderAll(data) {
         ${meta.url ? `<div style="margin-top:.3rem"><a href="${meta.url}" target="_blank" style="font-size:.75rem;color:#2d6a4f">🔗 Site oficial da Assembleia Municipal</a></div>` : ''}
       </div>
       ${renderAnimalMeasures(meta)}
+      ${renderNews(meta.news)}
       ${comp ? `<div style="text-align:center;margin-top:1.5rem"><h3 style="font-size:.9rem;font-weight:600;color:#64748b;margin-bottom:.5rem">Composição da Assembleia</h3><div class="composition-grid">${comp}</div></div>` : ''}
     `;
     return;
@@ -176,6 +186,7 @@ function renderAll(data) {
     </div>
 
     ${renderAnimalMeasures(meta)}
+    ${renderNews(meta.news)}
 
     <div class="charts-grid">
       <div class="chart-card"><h3>Votações PAN</h3><canvas id="chartPie"></canvas></div>
@@ -251,6 +262,18 @@ function renderRepCard(r) {
 function renderAnimalMeasures(meta) {
   if (!meta.animalMeasures) return '';
   return `<div class="animal-card"><strong>🐾 Medidas Animais:</strong> ${meta.animalMeasures}</div>`;
+}
+
+function renderNews(news) {
+  if (!news || news.length === 0) return '';
+  return `<div class="news-section">
+    <div class="section-title">📰 Notícias <span>${news.length}</span></div>
+    ${news.map(n => `<div class="news-card">
+      <a href="${n.url}" target="_blank" class="news-title">${n.title}</a>
+      <div class="news-meta">${n.source} · ${fmtDate(n.date)}</div>
+      <div class="news-summary">${n.summary}</div>
+    </div>`).join('')}
+  </div>`;
 }
 
 const REP_TYPE_LABELS = { directa: 'PAN', independente: 'Independente', coligação: 'Coligação', outro: 'Outro' };
