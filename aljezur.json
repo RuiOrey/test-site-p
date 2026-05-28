@@ -27,28 +27,32 @@
         "url": "https://cms.cm-aljezur.pt//upload_files/client_id_2/website_id_1/Autarquia/Assembleia_Municipal/Atas_2026/ata_2026-02-20.pdf",
         "source": "AM Aljezur (Ata S5)",
         "date": "2026-02-20",
-        "summary": "Deputada do PAN alertou para a falta de recursos humanos no Serviço Médico Veterinário municipal, que conta com apenas uma veterinária sem apoio, sugerindo afetação flexível de pessoal."
+        "summary": "Deputada do PAN alertou para a falta de recursos humanos no Serviço Médico Veterinário municipal, que conta com apenas uma veterinária sem apoio, sugerindo afetação flexível de pessoal.",
+        "tags": ["PAN", "Marta Goed", "animais"]
       },
       {
         "title": "AEZA — Associação Ecologista e Zoófila de Aljezur protege animais abandonados",
         "url": "https://aeza.org/sobre-aeza/",
         "source": "AEZA",
         "date": "2025",
-        "summary": "Associação sem fins lucrativos que gere o canil municipal provisório em parceria com a CM Aljezur, promovendo adoções, esterilizações e melhorias nas condições de vida dos animais."
+        "summary": "Associação sem fins lucrativos que gere o canil municipal provisório em parceria com a CM Aljezur, promovendo adoções, esterilizações e melhorias nas condições de vida dos animais.",
+        "tags": ["animais", "Aljezur"]
       },
       {
         "title": "Apreendidos mais de sete quilos de perceves em Aljezur",
         "url": "https://greensavers.sapo.pt/apreendidos-mais-de-sete-quilos-de-perceves-em-aljezur/",
         "source": "Green Savers",
         "date": "2025-08-13",
-        "summary": "Ação conjunta da Polícia Marítima e ICNF fiscalizou pescadores lúdicos no Parque Natural do Sudoeste Alentejano e Costa Vicentina, resultando na apreensão de 7,4 kg de perceves."
+        "summary": "Ação conjunta da Polícia Marítima e ICNF fiscalizou pescadores lúdicos no Parque Natural do Sudoeste Alentejano e Costa Vicentina, resultando na apreensão de 7,4 kg de perceves.",
+        "tags": ["ambiente", "Aljezur"]
       },
       {
         "title": "Salvar animais e encontrar uma família que os adopte — AEZA Aljezur",
         "url": "https://correiodelagos.com/associativismo/salvar-animais-e-encontrar-uma-familia-que-os-adopte/",
         "source": "Correio de Lagos",
         "date": "2025",
-        "summary": "AEZA já encontrou lar para centenas de animais abandonados no concelho de Aljezur, com campanhas de esterilização e melhoria das condições de animais acorrentados."
+        "summary": "AEZA já encontrou lar para centenas de animais abandonados no concelho de Aljezur, com campanhas de esterilização e melhoria das condições de animais acorrentados.",
+        "tags": ["animais", "Aljezur"]
       }
     ]
   },

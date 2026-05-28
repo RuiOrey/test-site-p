@@ -85,6 +85,8 @@ tr.clickable:hover .detail-icon { color: #2d6a4f; }
 .news-card .news-title:hover { color: #2d6a4f; }
 .news-card .news-meta { font-size: .72rem; color: #94a3b8; margin-top: .15rem; }
 .news-card .news-summary { font-size: .78rem; color: #64748b; margin-top: .25rem; line-height: 1.4; }
+.news-tags { display: flex; gap: .3rem; flex-wrap: wrap; margin-top: .35rem; }
+.news-tag { font-size: .68rem; padding: .15rem .5rem; border-radius: 4px; font-weight: 500; background: #e8f5e9; color: #2d6a4f; }
 @media (max-width: 768px) { .charts-grid { grid-template-columns: 1fr; } .container { padding: 1rem; } .header h1 { font-size: 1.5rem; } }
 </style>
 </head>
@@ -274,6 +276,7 @@ function renderNews(news) {
       <a href="${n.url}" target="_blank" class="news-title">${n.title}</a>
       <div class="news-meta">${n.source} · ${fmtDate(n.date)}</div>
       <div class="news-summary">${n.summary}</div>
+      ${n.tags ? `<div class="news-tags">${n.tags.map(t => `<span class="news-tag">${t}</span>`).join('')}</div>` : ''}
     </div>`).join('')}
   </div>`;
 }

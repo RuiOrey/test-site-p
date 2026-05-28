@@ -91,28 +91,32 @@
         "url": "https://regiao-sul.pt/politica/saul-rosa-assume-funcoes-como-vereador-do-pan-na-camara-de-vrsa/754476",
         "source": "Região Sul",
         "date": "2026-03-07",
-        "summary": "Saúl Rosa tornou-se o primeiro membro do PAN num executivo municipal em Portugal, assumindo como vereador em regime de substituição na CM VRSA, no âmbito do acordo PAN/PS."
+        "summary": "Saúl Rosa tornou-se o primeiro membro do PAN num executivo municipal em Portugal, assumindo como vereador em regime de substituição na CM VRSA, no âmbito do acordo PAN/PS.",
+        "tags": ["PAN", "Saúl Rosa", "VRSA"]
       },
       {
         "title": "VRSA avança com programa KAHU de bem-estar animal para proteger colónias de gatos",
         "url": "https://maisalgarve.pt/2025/09/03/vila-real-de-santo-antonio-municipio-avanca-programa-de-bem-estar-animal-para-proteger-colonias-de-gatos/",
         "source": "Mais Algarve",
         "date": "2025-09-03",
-        "summary": "Programa municipal assenta no método CED (Captura-Esterilização-Devolução) com abrigos normalizados, alimentação supervisionada e cuidadores reconhecidos em todas as freguesias."
+        "summary": "Programa municipal assenta no método CED (Captura-Esterilização-Devolução) com abrigos normalizados, alimentação supervisionada e cuidadores reconhecidos em todas as freguesias.",
+        "tags": ["animais", "VRSA"]
       },
       {
         "title": "VRSA e Castro Marim assumem gestão direta do CROA com reforço de equipas técnicas",
         "url": "https://jornaldoalgarve.pt/vrsa-e-castro-marim-assumem-gestao-direta-do-croa/",
         "source": "Jornal do Algarve",
         "date": "2026-02-04",
-        "summary": "Municípios profissionalizam gestão do Centro de Recolha Oficial de Animais Intermunicipal com mais uma enfermeira e um novo médico veterinário dedicado a esterilizações."
+        "summary": "Municípios profissionalizam gestão do Centro de Recolha Oficial de Animais Intermunicipal com mais uma enfermeira e um novo médico veterinário dedicado a esterilizações.",
+        "tags": ["animais", "VRSA"]
       },
       {
         "title": "PAN apoia recandidatura de Álvaro Araújo em VRSA com compromissos de bem-estar animal",
         "url": "https://correiodelagos.com/politica-ambiente/pan-apoia-recandidatura-de-alvaro-araujo-em-vila-real-de-santo-antonio/",
         "source": "Correio de Lagos",
         "date": "2025",
-        "summary": "Acordo político inclui criação de Provedor do Bem-Estar Animal, contratação de mais um veterinário, construção de CROA próprio e abrigos para colónias georreferenciadas."
+        "summary": "Acordo político inclui criação de Provedor do Bem-Estar Animal, contratação de mais um veterinário, construção de CROA próprio e abrigos para colónias georreferenciadas.",
+        "tags": ["PAN", "VRSA", "Álvaro Araújo"]
       }
     ]
   },
