@@ -76,6 +76,19 @@ tr.clickable:hover .detail-icon { color: #2d6a4f; }
 .animal-card.yellow .card-title { color: #78350f; }
 .animal-card.red { background: #fef2f2; border: 2px solid #dc2626; color: #991b1b; box-shadow: 0 4px 12px rgba(220,38,38,.1); }
 .animal-card.red .card-title { color: #7f1d1d; }
+.animal-table-title { font-size: .95rem; font-weight: 700; color: #1a1a2e; margin-bottom: .75rem; }
+.animal-table { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: .75rem; margin-bottom: 1.5rem; }
+.at-card { background: white; border: 1px solid #e2e8f0; border-radius: 10px; padding: .85rem 1rem; cursor: pointer; transition: all .15s; }
+.at-card:hover { border-color: #2d6a4f; box-shadow: 0 2px 8px rgba(45,106,79,.1); }
+.at-name { font-weight: 700; font-size: .85rem; color: #1a1a2e; margin-bottom: .5rem; }
+.at-row { display: flex; align-items: center; gap: .35rem; font-size: .75rem; margin-bottom: .3rem; color: #475569; }
+.at-label { font-weight: 600; white-space: nowrap; min-width: 4.5rem; }
+.at-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.at-dot.green { background: #16a34a; }
+.at-dot.yellow { background: #d97706; }
+.at-dot.red { background: #dc2626; }
+.at-dot.gray { background: #94a3b8; }
+.at-text { color: #64748b; line-height: 1.3; }
 .rep-bar { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: .5rem; }
 .muni-link { display: inline-block; margin-top: 1rem; font-size: .85rem; color: #2d6a4f; text-decoration: none; padding: .5rem 1rem; border: 1px solid #bbf7d0; border-radius: 8px; background: #f0fdf4; font-weight: 500; transition: all .15s; }
 .muni-link:hover { background: #2d6a4f; color: white; border-color: #2d6a4f; }
@@ -111,6 +124,7 @@ tr.clickable:hover .detail-icon { color: #2d6a4f; }
   <div class="subtitle" id="subtitle"></div>
 </div>
 <div class="container">
+  <div id="animal-table"></div>
   <div id="app"></div>
 </div>
 <script>
@@ -125,19 +139,29 @@ const PARTY_SHORT = { 'PPD/PSD': 'PSD', 'CDS-PP': 'CDS' };
 function pn(name) { return PARTY_SHORT[name] || name; }
 
 let currentData = null;
+let allData = {};
 let chartInstances = [];
 
-async function switchMunicipality(id) {
+let loaded = false;
+async function loadAll() {
+  if (loaded) return;
+  loaded = true;
+  const ids = Object.keys(MUNICIPALITIES);
+  await Promise.all(ids.map(async id => {
+    try {
+      const resp = await fetch(MUNICIPALITIES[id]);
+      if (resp.ok) allData[id] = await resp.json();
+    } catch (_) {}
+  }));
+  renderAnimalTable();
+}
+
+function switchMunicipality(id) {
   document.querySelectorAll('.muni-tab').forEach(b => b.classList.toggle('active', b.dataset.muni === id));
-  try {
-    const resp = await fetch(MUNICIPALITIES[id]);
-    if (!resp.ok) throw new Error('Failed to load');
-    const data = await resp.json();
-    currentData = data;
-    renderAll(data);
-  } catch (e) {
-    document.getElementById('app').innerHTML = `<div class="placeholder-msg"><h3>Erro ao carregar dados</h3><p>Não foi possível carregar os dados do município.</p></div>`;
-  }
+  const data = allData[id];
+  if (!data) return;
+  currentData = data;
+  renderAll(data);
 }
 
 function renderAll(data) {
@@ -163,8 +187,6 @@ function renderAll(data) {
     ).join('') : '';
 
     app.innerHTML = `
-      ${renderAnimalMeasures(meta)}
-      ${renderNews(meta.news)}
       <div class="stats-grid">
         <div class="stat-card"><div class="label">Sessões</div><div class="value" style="color:#2d6a4f">${nSessions}</div></div>
         <div class="stat-card"><div class="label">Votações PAN</div><div class="value">${nTotal}</div></div>
@@ -178,6 +200,7 @@ function renderAll(data) {
         ${meta.panReps.map(r => renderRepCard(r)).join('')}
       </div>
       ${meta.url ? `<a href="${meta.url}" target="_blank" class="muni-link">🔗 Site oficial da Assembleia Municipal</a>` : ''}
+      ${renderNews(meta.news)}
     `;
     return;
   }
@@ -185,8 +208,6 @@ function renderAll(data) {
   const concordance = Math.round(nFavor / nTotal * 100);
 
   app.innerHTML = `
-    ${renderAnimalMeasures(meta)}
-    ${renderNews(meta.news)}
     <div class="stats-grid">
       <div class="stat-card"><div class="label">Sessões</div><div class="value" style="color:#2d6a4f">${nSessions}</div></div>
       <div class="stat-card"><div class="label">Votações PAN</div><div class="value">${nTotal}</div></div>
@@ -200,6 +221,7 @@ function renderAll(data) {
       ${meta.panReps.map(r => renderRepCard(r)).join('')}
     </div>
     ${meta.url ? `<a href="${meta.url}" target="_blank" class="muni-link">🔗 Site oficial da Assembleia Municipal</a>` : ''}
+    ${renderNews(meta.news)}
 
     <div class="charts-grid">
       <div class="chart-card"><h3>Votações PAN</h3><canvas id="chartPie"></canvas></div>
@@ -270,6 +292,22 @@ function renderRepCard(r) {
   }
   html += `</div>`;
   return html;
+}
+
+function renderAnimalTable() {
+  const container = document.getElementById('animal-table');
+  const entries = Object.entries(allData);
+  if (entries.length === 0) { container.innerHTML = ''; return; }
+  const rows = entries.map(([id, d]) => {
+    const am = d.meta.animalMeasures;
+    const m = am?.municipio, p = am?.pan;
+    return `<div class="at-card" onclick="switchMunicipality('${id}')">
+      <div class="at-name">${d.meta.name}</div>
+      <div class="at-row"><span class="at-label">🏛️ Município</span><span class="at-dot ${m?.status || 'gray'}"></span><span class="at-text">${m ? m.text.slice(0, 90) + '…' : '—'}</span></div>
+      <div class="at-row"><span class="at-label">🌿 PAN</span><span class="at-dot ${p?.status || 'gray'}"></span><span class="at-text">${p ? p.text.slice(0, 90) + '…' : '—'}</span></div>
+    </div>`;
+  }).join('');
+  container.innerHTML = `<div class="animal-table-title">🐾 Situação Animal por Município</div><div class="animal-table">${rows}</div>`;
 }
 
 function renderAnimalMeasures(meta) {
@@ -488,7 +526,7 @@ function setupCharts(allItems) {
   }
 }
 
-switchMunicipality('faro');
+(async () => { await loadAll(); switchMunicipality('faro'); })();
 </script>
 </body>
 </html>
